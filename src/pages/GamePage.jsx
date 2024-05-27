@@ -1,153 +1,91 @@
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
-import dateData from "/data/date.json";
-import partyData from "/data/party.json";
-import spicyData from "/data/spicy.json";
+import dateData from "../data/date.json";
+import partyData from "../data/party.json";
+import spicyData from "../data/spicy.json";
 
-export default function GamePage() {
-  const [renderdCards, setRenderedCards] = useState([]);
+const categoryMap = {
+  date: dateData,
+  party: partyData,
+  spicy: spicyData,
+};
 
-  // initialization of the array that will contain all the cards
-  let data = [];
+function Game() {
+  const [data, setData] = useState([]);
+  const [renderedCards, setRenderedCards] = useState(new Set());
+  const [cardStack, setCardStack] = useState([]);
 
-  // map helping the choose category function get the correct json
-  const categoryMap = {
-    date: dateData,
-    party: partyData,
-    spicy: spicyData,
+  const chooseCategory = (category) => {
+    const categoryData =
+      category === "mixed"
+        ? [...dateData, ...partyData, ...spicyData]
+        : categoryMap[category] || [];
+    setData(categoryData);
+    setRenderedCards(new Set());
+    renderCards(categoryData);
   };
 
-  // ------------------------------------------------------------
-  // Creating a card in HTML and adds the question and category as text
-  // ------------------------------------------------------------
-  function chooseCategory(category) {
-    if (category === "mixed") {
-      // Add everything from the json files into the empty data array
-      data = [...dateData, ...partyData, ...spicyData];
-      renderedCards = [];
-      renderCards();
-    } else {
-      const categoryData = categoryMap[category];
-      if (categoryData) {
-        data = [...categoryData];
-        renderedCards = [];
-        renderCards();
-      } else {
-        console.error("Category not found:", category);
+  const renderCards = (categoryData) => {
+    const newCardStack = [];
+    const newRenderedCards = new Set();
+
+    while (
+      newCardStack.length < 5 &&
+      newRenderedCards.size < categoryData.length
+    ) {
+      const randomIndex = Math.floor(Math.random() * categoryData.length);
+      if (!newRenderedCards.has(randomIndex)) {
+        newCardStack.push(categoryData[randomIndex]);
+        newRenderedCards.add(randomIndex);
       }
     }
-  }
 
-  // array containing all the cards that have been rendered so we dont render the same card twice
+    setCardStack(newCardStack);
+    setRenderedCards(newRenderedCards);
+  };
 
-  // div containing all the cards
-  const cardStack = document.getElementById("cardStack");
-
-  // ------------------------------------------------------------
-  // Creating a card in HTML and adds the question and category as text
-  // ------------------------------------------------------------
-  function createCardElement(index) {
-    const cardElement = document.createElement("div");
-    cardElement.className = "card";
-    cardElement.innerText = `Is it only me ${data[index].question} from ${data[index].category}`;
-    return cardElement;
-  }
-
-  // ------------------------------------------------------------
-  // Renders 5 cards when you load in to the page
-  // ------------------------------------------------------------
-  useEffect(() => {
-    for (let i = 0; i < 5; i++) {
-      addNewCard();
-    }
-    updateZIndices();
-  }, []);
-
-  // ------------------------------------------------------------
-  // Update the z-index and position of all cards in the stack
-  // ------------------------------------------------------------
-  function updateZIndices() {
-    const highestZIndex = 4;
-    const cards = Array.from(cardStack.children);
-    cards.forEach((card, index) => {
-      card.style.zIndex = highestZIndex - index;
-      card.style.transform = `scale(${(20 - index) / 20}) translateX(${
-        15 * index
-      }px) translateY(-${15 * index}px)`;
-    });
-  }
-
-  // ------------------------------------------------------------
-  // Remove the first card in the card stack div
-  // ------------------------------------------------------------
-  function removeCard() {
-    if (cardStack.childElementCount > 0) {
-      cardStack.removeChild(cardStack.firstChild);
-      updateZIndices();
-    } else {
-      console.error("No cards left to remove");
-    }
-  }
-
-  // ------------------------------------------------------------
-  // Add a new card to the stack at the back of the pile
-  // ------------------------------------------------------------
-const handleAddNewCard = () => {
-  const randomIndex = Math.floor(Math.random() * data.length);
-  if (renderedCards.includes(randomIndex)) {
-    if (renderedCards.length === data.length) {
-      const lastCard = document.createElement("div");
-      lastCard.className = "card";
-      lastCard.textContent = "Oh no! no cards :(";
-      cardStack.appendChild(lastCard);
+  const addNewCard = () => {
+    if (renderedCards.size === data.length) {
+      alert("Oh no! No more cards available :(");
       return;
     }
-    addNewCard();
-  } else {
-    const cardElement = createCardElement(randomIndex);
-    cardStack.appendChild(cardElement);
-    renderedCards.push(randomIndex);
-    updateZIndices();
-  }
-}
 
-  function addNewCard() {
-    if (data.length === 0) return;
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * data.length);
+    } while (renderedCards.has(randomIndex));
 
-    const randomIndex = Math.floor(Math.random() * data.length);
-    
-    if (renderedCards.includes(randomIndex))
+    setCardStack((prevStack) => [...prevStack, data[randomIndex]]);
+    setRenderedCards((prevRendered) => new Set(prevRendered).add(randomIndex));
+  };
 
-
-    // if (renderedCards.includes(randomIndex)) {
-    //   if (renderedCards.length === data.length) {
-    //     const lastCard = document.createElement("div");
-    //     lastCard.className = "card";
-    //     lastCard.textContent = "Oh no! no cards :(";
-    //     cardStack.appendChild(lastCard);
-    //     return;
-    //   }
-    //   addNewCard();
-    // } else {
-    //   const cardElement = createCardElement(randomIndex);
-    //   cardStack.appendChild(cardElement);
-    //   renderedCards.push(randomIndex);
-    //   updateZIndices();
-    // }
-  }
+  const removeCard = () => {
+    setCardStack((prevStack) => prevStack.slice(1));
+  };
 
   return (
     <div>
-      {renderedCards.map((card, index) => (
-        <Card question="blabala" category="this is category" index={index}  />
-      ))}
-      <button onClick={addNewCard()}>Add New Card</button>
-      <button onClick={removeCard()}>Remove Card</button>
-      <button onClick={chooseCategory("mixed")}>Mixed</button>
-      <button onClick={chooseCategory("party")}>Party</button>
-      <button onClick={chooseCategory("spicy")}>Spicy</button>
-      <button onClick={chooseCategory("date")}>Date</button>
+      <button className="btn" onClick={removeCard}>
+        Remove
+      </button>
+      <button onClick={addNewCard}>Add Card</button>
+      <button onClick={() => chooseCategory("mixed")}>Mixed</button>
+      <button onClick={() => chooseCategory("date")}>Date</button>
+      <button onClick={() => chooseCategory("party")}>Party</button>
+      <button onClick={() => chooseCategory("spicy")}>Spicy</button>
+      <section>
+        <div className="card-stack">
+          {cardStack.map((card, index) => (
+            <Card
+              key={index}
+              question={card.question}
+              category={card.category}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
+
+export default Game;
