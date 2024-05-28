@@ -1,15 +1,11 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
-
-export default function Button() {
-
-  
-
-
+export default function Button(props) {
+  const { label, link } = props;
 
   return (
-    <div className={styles.button}>
-      
-    </div>
-  )
+    <Link to={link}>
+      <button className={`py-3 px-4 bg-black text-white rounded-full cursor-pointer`}>{label}</button>
+    </Link>
+  );
 }
