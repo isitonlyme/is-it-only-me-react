@@ -1,88 +1,87 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
-import dateData from "../data/date.json";
-import partyData from "../data/party.json";
-import spicyData from "../data/spicy.json";
+import { useGame } from "../context/GameContext";
+import { useSprings, animated, to as interpolate } from "@react-spring/web";
+import { useDrag } from '@use-gesture/react';
+import styles from './styles.module.css'
 
-const categoryMap = {
-  date: dateData,
-  party: partyData,
-  spicy: spicyData,
-};
+const to = (i) => ({
+  x: 0,
+  y: i * -4,
+  scale: 1.5,
+  rot: -10 + Math.random() * 20,
+  delay: i * 100,
+});
+const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const trans = (r, s) => `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Game() {
-  const [data, setData] = useState([]);
-  const [renderedCards, setRenderedCards] = useState(new Set());
-  const [cardStack, setCardStack] = useState([]);
+  const { cardStack, cardStyles, addNewCard, removeCard } = useGame();
 
-  const chooseCategory = (category) => {
-    const categoryData =
-      category === "mixed"
-        ? [...dateData, ...partyData, ...spicyData]
-        : categoryMap[category] || [];
-    setData(categoryData);
-    setRenderedCards(new Set());
-    renderCards(categoryData);
-  };
+  const [props, api] = useSprings(cardStack.length, (i) => ({
+    ...to(i),
+    from: from(i),
+  }));
 
-  const renderCards = (categoryData) => {
-    const newCardStack = [];
-    const newRenderedCards = new Set();
+  // useEffect(() => {
+  //   api.start((i) => to(i));
+  // }, [cardStack, api]);
 
-    while (
-      newCardStack.length < 5 &&
-      newRenderedCards.size < categoryData.length
-    ) {
-      const randomIndex = Math.floor(Math.random() * categoryData.length);
-      if (!newRenderedCards.has(randomIndex)) {
-        newCardStack.push(categoryData[randomIndex]);
-        newRenderedCards.add(randomIndex);
+  const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
+    const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
+    const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
+    if (!down && trigger) gone.add(index) // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
+    api.start(i => {
+      if (index !== i) return // We're only interested in changing spring-data for the current spring
+      const isGone = gone.has(index)
+      const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0 // When a card is gone it flys out left or right, otherwise goes back to zero
+      const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
+      const scale = down ? 1.1 : 1 // Active cards lift up a bit
+      return {
+        x,
+        rot,
+        scale,
+        delay: undefined,
+        config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
       }
-    }
-
-    setCardStack(newCardStack);
-    setRenderedCards(newRenderedCards);
-  };
-
-  const addNewCard = () => {
-    if (renderedCards.size === data.length) {
-      alert("Oh no! No more cards available :(");
-      return;
-    }
-
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * data.length);
-    } while (renderedCards.has(randomIndex));
-
-    setCardStack((prevStack) => [...prevStack, data[randomIndex]]);
-    setRenderedCards((prevRendered) => new Set(prevRendered).add(randomIndex));
-  };
-
-  const removeCard = () => {
-    setCardStack((prevStack) => prevStack.slice(1));
-  };
+    })
+    if (!down && gone.size === cards.length)
+      setTimeout(() => {
+        api.start(i => to(i))
+      }, 600)
+  })
+//   <Card
+//   key={index}
+//   rot={rot}
+//   scale={scale}
+//   question={card.question}
+//   category={card.category}
+//   style={cardStyles[index]}
+// />
 
   return (
     <div>
-      <button className="btn" onClick={removeCard}>
-        Remove
-      </button>
-      <button onClick={addNewCard}>Add Card</button>
-      <button onClick={() => chooseCategory("mixed")}>Mixed</button>
-      <button onClick={() => chooseCategory("date")}>Date</button>
-      <button onClick={() => chooseCategory("party")}>Party</button>
-      <button onClick={() => chooseCategory("spicy")}>Spicy</button>
       <section>
-        <div className="card-stack">
-          {cardStack.map((card, index) => (
-            <Card
-              key={index}
-              question={card.question}
-              category={card.category}
-            />
-          ))}
-        </div>
+        <button className="btn" onClick={removeCard}>
+          Remove
+        </button>
+        <button onClick={addNewCard}>Add Card</button>
+        {cardStack.map((card, index) => {
+          const { x, y, rot, scale } = props[index];
+          return (
+            <animated.div className={styles.deck} key={index} style={{ transform: trans(rot, scale), x, y }}>
+              <animated.div
+                {...bind(index)}
+                style={{
+                transform: interpolate([rot, scale], trans),
+                }}>
+                <p>{card.category}</p>
+                <h3 className="font-bold">Is it only me...</h3>
+                <p>{card.question}</p>
+              </animated.div>
+            </animated.div>
+          );
+        })}
       </section>
     </div>
   );

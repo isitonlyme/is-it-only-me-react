@@ -3,16 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import GamePage from "./pages/GamePage";
 import CategoryPage from "./pages/CategoryPage";
+import { GameProvider } from "./context/GameContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<GamePage />} />
-        <Route path="/categories" element={<CategoryPage />} />
-        <Route path="/game" element={<GamePage />} />
-      </Routes>
-    </BrowserRouter>
+    <GameProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<GamePage />} />
+          <Route path="/categories" element={<CategoryPage />} />
+          <Route path="/game" element={<LandingPage />} />
+        </Routes>
+      </BrowserRouter>
+    </GameProvider>
   );
 }
 

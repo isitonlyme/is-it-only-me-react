@@ -12,7 +12,7 @@
   {
     "id": 2,
     "category": "date",
-    "question": "3. likes apples?"
+    "question": "3. that dates ugly people to feel superior?"
   },
   {
     "id": 3,
@@ -48,6 +48,15 @@
     "id": 9,
     "category": "date",
     "question": "10. that has an official date outfit?"
+  },
+  {
+    "id": 10,
+    "category": "date",
+    "question": "11. that thinks people with Samsung phones are unattractive?"
+  },
+  {
+    "id": 11,
+    "category": "date",
+    "question": "who judges people by their taste in music or TV shows?"
   }
- 
 ]
