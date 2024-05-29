@@ -1,8 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from "tailwindcss/defaultTheme";
 
-module.exports = {
-  content: ["./index.html", "./src/**/*.{css,js,ts,jsx,tsx}"],
+export default {
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
