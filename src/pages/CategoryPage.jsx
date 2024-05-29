@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import { useGame } from "../context/GameContext";
 import { Link } from "react-router-dom";
 
-export default function CategoryPage({ categoryName, label }) {
+export default function CategoryPage() {
   const { chooseCategory } = useGame();
   return (
     <section className="flex flex-col justify-start items-center w-screen h-screen">

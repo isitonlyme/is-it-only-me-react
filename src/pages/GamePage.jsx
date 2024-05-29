@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
 import CardComponent from "../components/Card";
-import styles from "./styles.module.css";
 
 const to = (i) => ({
   x: i * 8,
@@ -12,7 +11,7 @@ const to = (i) => ({
   //rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
-const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 
 function Game() {
   const { cardStack, addNewCard } = useGame();
@@ -65,9 +64,9 @@ function Game() {
   }, [cardFling, addNewCard]);
 
   return (
-    <div>
-      <section>
-        <div className={styles.container}>
+    <div className="relative w-screen h-screen overflow-hidden">
+      <section className="flex items-center justify-center h-full">
+        <div className="relative w-[300px] h-[400px] overflow-hidden">
           {cardStack.map((card, index) => (
             <CardComponent
               key={index}

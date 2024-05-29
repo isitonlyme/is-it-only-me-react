@@ -1,4 +1,3 @@
-import React from 'react';
 import { animated, to as interpolate } from '@react-spring/web';
 import styles from './styles.module.css';
 
