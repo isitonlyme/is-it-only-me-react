@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{css,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans]
-      }
+        sans: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [],
