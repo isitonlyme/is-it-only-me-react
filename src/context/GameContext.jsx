@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import dateData from "../data/date.json";
 import partyData from "../data/party.json";
 import spicyData from "../data/spicy.json";
@@ -11,15 +11,14 @@ const categoryMap = {
   spicy: spicyData,
 };
 
-export const GameProvider = ({ children })  => {
-  // state containing the questions from json file - depending on chosen category
+export const GameProvider = ({ children }) => {
   const [data, setData] = useState([]);
   // state containing all the cards that have been rendered - to keep track on which questions we have showed
   const [renderedCards, setRenderedCards] = useState(new Set());
   // Cards that are present on the screen
   const [cardStack, setCardStack] = useState([]);
-  // State for keep track of the cards position and z-index
-  const [cardStyles, setCardStyles] = useState([]);
+  // Boolean state to check if the Oh No! card has been added or not
+  const [finalCardAdded, setFinalCardAdded] = useState(false);
 
   // ------------------------------------------------------------
   //  Function that checks if the chosen category is mixed, if not it checks which category is chosen and takes that JSON
@@ -42,7 +41,6 @@ export const GameProvider = ({ children })  => {
     const tempCardStack = [];
     const tempRenderedCards = new Set();
 
-    // While the cardstack does not contain more than 5 cards, and is smaller than data
     while (
       tempCardStack.length < 5 &&
       tempRenderedCards.size < categoryData.length
@@ -56,32 +54,21 @@ export const GameProvider = ({ children })  => {
 
     setCardStack(tempCardStack);
     setRenderedCards(tempRenderedCards);
-    console.log(tempCardStack)
   };
-
-  // ------------------------------------------------------------
-  // Update the z-index and position of all cards in the stack
-  // ------------------------------------------------------------
-  // const updateCardStyles = (stack) => {
-  //   const highestZIndex = stack.length - 1;
-  //   const newStyles = stack.map((_, index) => ({
-  //     zIndex: highestZIndex - index,
-  //     transform: `scale(${(20 - index) / 20}) translateX(${
-  //       15 * index
-  //     }px) translateY(-${15 * index}px)`,
-  //   }));
-  //   setCardStyles(newStyles);
-  // };
-
   // ------------------------------------------------------------
   // Adds a new card, is the rendered cards the same as the added card
   // ------------------------------------------------------------
   const addNewCard = () => {
-    if (renderedCards.size === data.length) {
-      //maybe change to have an Oh no card instead of an alert
-      alert("Oh no! No more cards available :(");
+    if (renderedCards.size === data.length && !finalCardAdded) {
+      setCardStack((prevStack) => [
+        ...prevStack,
+        { category: "Oh no!", question: "No more cards available for this edition :(" },
+      ]);
+      setFinalCardAdded(true);
       return;
     }
+
+    if (finalCardAdded) return;
 
     let randomIndex;
     do {
@@ -90,39 +77,24 @@ export const GameProvider = ({ children })  => {
       // Continue generating a new random index while the generated index has already been rendered
     } while (renderedCards.has(randomIndex));
 
-    setCardStack((prevStack) => {
-      // Update the card stack with the new card
-      const newStack = [...prevStack, data[randomIndex]]; // Create a new stack by adding the new card to the previous stack
-      //updateCardStyles(newStack); // Update the styles of the cards in the new stack
-      return newStack;
-    });
-    // Update the set of rendered cards to include the newly rendered card's index
-    // Create a new Set from the previous set and add the new index to it
+    setCardStack((prevStack) => [...prevStack, data[randomIndex]]);
     setRenderedCards((prevRendered) => new Set(prevRendered).add(randomIndex));
   };
 
+    // ------------------------------------------------------------
+  // Remove card (Not used anymore)
   // ------------------------------------------------------------
-  // Remove card
-  // ------------------------------------------------------------
-  const removeCard = () => {
-    setCardStack((prevStack) => {
-      // Create a new array excluding the first element of the previous stack
-      const newStack = prevStack.slice(0, prevStack.length - 1);
-      //updateCardStyles(newStack);
-      return newStack;
-    });
+  const removeCard = (indexToRemove) => {
+    setCardStack((prevStack) =>
+      prevStack.filter((_, index) => index !== indexToRemove)
+    );
   };
-
-  // useEffect(() => {
-  //   updateCardStyles(cardStack);
-  // }, [cardStack]);
 
   return (
     <GameContext.Provider
       value={{
         data,
         cardStack,
-        cardStyles,
         chooseCategory,
         addNewCard,
         removeCard,
