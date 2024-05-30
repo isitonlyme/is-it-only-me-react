@@ -1,3 +1,25 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* progress test */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
+  height: 15px;
+  border: none;
+  background: lightgray;
+  border: 1px;
+}
+progress::-webkit-progress-bar {
+  background: lightgray;
+}
+progress::-webkit-progress-value {
+  background: black;
+  background-attachment: fixed;
+}
+progress::-moz-progress-bar {
+  background: black;
+  background-attachment: fixed;
+}
