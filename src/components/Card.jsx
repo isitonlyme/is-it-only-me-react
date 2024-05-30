@@ -6,7 +6,7 @@ const trans = (r, s) => `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) s
 
 function CardComponent({ card, zIndex, index, props, bind }) {
   const { x, y, rot, scale } = props;
-
+  
   return (
     <animated.div
       className={styles.deck}

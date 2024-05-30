@@ -63,11 +63,11 @@ function Game() {
       setCardFling(false); // Reset the cardFling state
     }
   }, [cardFling, addNewCard]);
-
+  console.log(gone.size, gone.size * 8)
   return (
     <div>
       <section>
-        <div className={styles.container}>
+        <div className={styles.container} style={{transform: `translate(-${gone.size * 8}px,0)`}}>
           {cardStack.map((card, index) => (
             <CardComponent
               key={index}
