@@ -8,7 +8,7 @@ function CardComponent({ card, zIndex, index, props, bind }) {
 
   return (
     <animated.div
-      className="absolute w-[300px] h-[200px] will-change-transform flex items-center justify-center touch-none top-[300px]"
+      className="absolute w-[300px] h-[200px] will-change-transform flex items-center justify-center touch-none top-[250px]"
       style={{ 
         zIndex: zIndex,
         transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}
