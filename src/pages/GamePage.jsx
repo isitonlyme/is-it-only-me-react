@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
-import CardComponent from "../components/Card";
+import Card from "../components/Card";
+import Button from "../components/Button";
 
 const to = (i) => ({
   x: 0,
@@ -31,7 +32,7 @@ function Game() {
       direction: [xDir],
       velocity: [vx],
     }) => {
-      const isMoveable = index !== cardStack.length -1;
+      const isMoveable = index !== cardStack.length - 1;
       if (!isMoveable) return;
       const trigger = vx > 0.2; // If you flick hard enough it should trigger the card to fly out
       if (!active && trigger) {
@@ -64,17 +65,22 @@ function Game() {
   }, [cardFling, addNewCard]);
 
   return (
-    <div className="bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 flex items-center justify-center h-[100vh] touch-none overflow-hidden">
-          {cardStack.map((card, index) => (
-            <CardComponent
-              key={index}
-              card={card}
-              index={index}
-              zIndex={cardStack.length - index} // Set z-index based on card index
-              props={props[index]}
-              bind={bind}
-            />
-          ))}
+    <div className="bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 flex items-center justify-center h-[100vh] touch-none overflow-hidden relative">
+      <Button
+        label={"X"}
+        position={"absolute top-20 right-10 text-2xl bg-transparent"}
+        link={"/categories"}
+      />
+      {cardStack.map((card, index) => (
+        <Card
+          key={index}
+          card={card}
+          index={index}
+          zIndex={cardStack.length - index} // Set z-index based on card index
+          props={props[index]}
+          bind={bind}
+        />
+      ))}
     </div>
   );
 }

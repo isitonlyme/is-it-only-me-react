@@ -8,17 +8,17 @@ function CardComponent({ card, zIndex, index, props, bind }) {
 
   return (
     <animated.div
-      className="absolute w-[300px] h-[200px] will-change-transform flex items-center justify-center touch-none top-[250px]"
+      className="absolute w-[300px] h-[200px] will-change-transform flex items-center justify-center touch-none"
       style={{ 
         zIndex: zIndex,
         transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}
     >
       <animated.div
-        {...bind(index)} // Apply bind here
+        {...bind(index)}
         style={{
           transform: interpolate([rot, scale], trans),
         }}
-        className="flex flex-col bg-gradient-to-b from-[rgba(245,245,245,0.10)] via-transparent to-[rgba(245,245,245,0.10)] backdrop-blur-[30px] bg-auto bg-no-repeat bg-center w-[80vh] max-w-[351px] h-[85vh] max-h-[563px] will-change-transform border-[1.5px] border-black rounded-[40px] shadow-[0px_4px_24px_-1px_rgba(0,0,0,0.25)] touch-none p-6"
+        className="flex flex-col bg-white/0 backdrop-blur-2xl w-[80vh] max-w-[351px] h-[85vh] max-h-[563px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
       >
         <p className='text-indigo-700 uppercase pb-20 text-2xl'>{card.category} EDITION</p>
         <h3 className="font-bold text-white text-4xl pb-20">IS IT ONLY ME...</h3>
