@@ -1,13 +1,38 @@
+import { useState, useEffect } from "react";
+
 const Modal = ({ show, onClose }) => {
-  if (!show) {
+  const [isVisible, setIsVisible] = useState(show);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (show) {
+      setIsVisible(true);
+      setIsClosing(false);
+    }
+  }, [show]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsVisible(false);
+      setIsClosing(false);
+      onClose();
+    }, 500); // 500ms should match your scaleDown animation duration
+  };
+
+  if (!isVisible) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-bl flex items-center justify-center">
-      <div className="backdrop-blur-md bg-white/30 p-6 rounded-xl shadow-lg w-4/5 max-h-lvh">
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div
+        className={`backdrop-blur-md bg-white/30 p-6 rounded-xl shadow-lg w-4/5 max-h-lvh ${
+          isClosing ? "animate-scaleDown" : "animate-scaleUp"
+        }`}
+      >
         <div className="flex justify-end">
-          <button className="text-white" onClick={onClose}>
+          <button className="text-white" onClick={handleClose}>
             X
           </button>
         </div>
@@ -18,15 +43,21 @@ const Modal = ({ show, onClose }) => {
           <ol className="text-white list-decimal ml-16 mr-5 mt-8 text-2xl">
             <li className="mb-5">
               <p className="font-bold text-2xl">Pick Category</p>
-              <p className="font-thin text-xl">To start, pick a category that fits your mood</p>
+              <p className="font-thin text-xl">
+                To start, pick a category that fits your mood
+              </p>
             </li>
             <li className="mb-5">
               <p className="font-bold text-2xl">Swipe</p>
-              <p className="font-thin text-xl">Swipe card to go to the next statement.</p>
+              <p className="font-thin text-xl">
+                Swipe card to go to the next statement.
+              </p>
             </li>
             <li className="mb-5">
               <p className="font-bold text-2xl">Discuss</p>
-              <p className="font-thin text-xl">Discuss the statement and find out if any person agrees</p>
+              <p className="font-thin text-xl">
+                Discuss the statement and find out if any person agrees
+              </p>
             </li>
           </ol>
         </div>

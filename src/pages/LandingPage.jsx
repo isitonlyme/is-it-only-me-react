@@ -1,6 +1,7 @@
 import LPSection1 from "../components/LPSection1";
 import LPSection2 from "../components/LPSection2";
 import LPSection3 from "./LPSection3";
+import LPSection5 from "../components/LPSection5";
 import React, { useState, useEffect } from "react";
 
 export default function LandingPage() {
@@ -32,6 +33,7 @@ export default function LandingPage() {
           <LPSection1/>
           <LPSection2/>
           <LPSection3 />
+          <LPSection5/>
         </div>
       )}
     </div>

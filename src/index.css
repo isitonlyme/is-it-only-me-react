@@ -13,13 +13,13 @@ progress {
   border: 1px;
 }
 progress::-webkit-progress-bar {
-  background: lightgray;
+  background: rgb(177, 177, 177);
 }
 progress::-webkit-progress-value {
-  background: black;
+  background: rgb(255, 254, 254);
   background-attachment: fixed;
 }
 progress::-moz-progress-bar {
-  background: black;
+  background: rgb(255, 255, 255);
   background-attachment: fixed;
 }
