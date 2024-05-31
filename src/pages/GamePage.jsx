@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
 import Card from "../components/Card";
 import Button from "../components/Button";
+import swipe from "../sounds/swipe.mp3";
 
 const to = (i) => ({
   x: 0,
@@ -12,17 +13,23 @@ const to = (i) => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
-const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 
-function Game() {
+function GamePage() {
   const { cardStack, addNewCard } = useGame();
   const [gone] = useState(() => new Set());
   const [cardFling, setCardFling] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const audioRef = useRef(null);
 
   const [props, api] = useSprings(cardStack.length, (i) => ({
     ...to(i),
     from: from(i),
   }));
+
+  const handlePlay = () => {
+    audioRef.current.play();
+  };
 
   const bind = useDrag(
     ({
@@ -38,6 +45,7 @@ function Game() {
       if (!active && trigger) {
         gone.add(index); // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
         setCardFling(true);
+        handlePlay();
       }
       api.start((i) => {
         if (index !== i) return; // We're only interested in changing spring-data for the current spring
@@ -64,25 +72,55 @@ function Game() {
     }
   }, [cardFling, addNewCard]);
 
+  // if gone.size ==== cardStack -1 (if the cards that have been swiped away is the same amount of cards that have been rendered)
+  // show a button that takes you to category page
+  useEffect(() => {
+    if (gone.size === cardStack.length - 1) {
+      setShowButton(true);
+    }
+  }, [gone.size, cardStack.length]);
+
+
+
   return (
-    <div className="bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 flex items-center justify-center h-[100vh] touch-none overflow-hidden relative">
-      <Button
-        label={"X"}
-        position={"absolute top-20 right-10 text-2xl bg-transparent"}
-        link={"/categories"}
-      />
-      {cardStack.map((card, index) => (
-        <Card
-          key={index}
-          card={card}
-          index={index}
-          zIndex={cardStack.length - index} // Set z-index based on card index
-          props={props[index]}
-          bind={bind}
+    <div className="flex flex-col items-center justify-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] touch-none overflow-hidden relative">
+      <div className="flex justify-between w-full px-4 pt-4 ">
+        <Button
+          label={"?"}
+          styling={"text-2xl bg-transparent"}
+          link={"/categories"}
         />
-      ))}
+        <Button
+          label={"X"}
+          styling={"text-2xl bg-transparent"}
+          link={"/categories"}
+        />
+      </div>
+      <audio ref={audioRef}>
+      <source src={swipe} type="audio/mpeg" />
+      <p>Your browser does not support the audio element.</p>
+    </audio>
+      <div className="relative flex flex-col items-center justify-center flex-grow -mt-52">
+        {cardStack.map((card, index) => (
+          <Card
+            key={index}
+            card={card}
+            index={index}
+            zIndex={cardStack.length - index} // Set z-index based on card index
+            props={props[index]}
+            bind={bind}
+          />
+        ))}
+      </div>
+      {showButton && (
+        <Button
+          label={"Play Again"}
+          styling={" bg-[#e1f353] absolute bottom-36 left-36 text-black rounded-[10px] shadow-xl"}
+          link={"/categories"}
+        />
+      )}
     </div>
   );
 }
 
-export default Game;
+export default GamePage;
