@@ -24,7 +24,7 @@ export default function CategoryPage({ label }) {
         <Link to="/game" onClick={() => chooseCategory("party")}>
           Party Edition
         </Link>
-        <Link to="/" onClick={() => chooseCategory("spicy")}>
+        <Link to="/game" onClick={() => chooseCategory("spicy")}>
           Spicy Edition
         </Link>
       </div>
