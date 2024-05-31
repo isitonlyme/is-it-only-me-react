@@ -4,7 +4,7 @@ const Modal = ({ show, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-custom-bg flex items-center justify-center">
+    <div className="fixed inset-0 bg-gradient-to-bl flex items-center justify-center">
       <div className="backdrop-blur-md bg-white/30 p-6 rounded-xl shadow-lg w-4/5 max-h-lvh">
         <div className="flex justify-end">
           <button className="text-white" onClick={onClose}>
