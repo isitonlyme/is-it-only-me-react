@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
@@ -12,12 +12,13 @@ const to = (i) => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
-const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 
 function Game() {
   const { cardStack, addNewCard } = useGame();
   const [gone] = useState(() => new Set());
   const [cardFling, setCardFling] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const [props, api] = useSprings(cardStack.length, (i) => ({
     ...to(i),
@@ -64,8 +65,18 @@ function Game() {
     }
   }, [cardFling, addNewCard]);
 
+  // if gone.size ==== cardStack -1 (if the cards that have been swiped away is the same amount of cards that have been rendered)
+  // show a button that takes you to category page
+  useEffect(() => {
+    console.log(`gone: ${gone.size}    cardStack: ${cardStack.length}`)
+    if (gone.size === cardStack.length - 1) {
+      setShowButton(true);
+    }
+  }, [gone.size])
+
   return (
     <div className="bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 flex items-center justify-center h-[100vh] touch-none overflow-hidden relative">
+      {showButton && <Button label={"Play Again"} position={"absolute bottom-16 left-36"} link={"/categories"}/>}
       <Button
         label={"X"}
         position={"absolute top-20 right-10 text-2xl bg-transparent"}

@@ -11,9 +11,9 @@ function App() {
     <GameProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LPSection3 />} />
+          <Route path="/game" element={<GamePage/>} />
           <Route path="/categories" element={<CategoryPage />} />
-          <Route path="/game" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </GameProvider>
