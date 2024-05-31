@@ -81,8 +81,8 @@ export default function LPSection3() {
             <progress max="100" value="0" className="w-full"></progress>
             <div>Loading a hurtful fact...</div>
           </div>
-          <div id="specialText" className="hidden">
-            You're not so special
+          <div id="specialText" className="hidden text-7xl">
+            You're not<br></br> so special
           </div>
         </div>
       </section>
