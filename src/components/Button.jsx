@@ -6,7 +6,7 @@ export default function Button(props) {
   return (
     <Link to={link}>
       <button
-        className={`py-3 px-4 cursor-pointer ${styling}`}
+        className={`py-3 px-4 rounded-[10px] cursor-pointer ${styling}`}
         onClick={onClick}
       >
         {label}
