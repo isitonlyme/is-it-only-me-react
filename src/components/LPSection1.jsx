@@ -77,7 +77,7 @@ export default function LPSection1() {
           </div>
         ))}
       </section>
-      {/* <section ref={scrollRef} className="w-screen h-screen bg-[#0D2D75]"></section> */}
+      <section ref={scrollRef} className="w-screen h-screen bg-[#0D2D75]"></section>
     </div>
   );
 }

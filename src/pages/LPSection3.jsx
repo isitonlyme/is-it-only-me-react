@@ -67,7 +67,7 @@ export default function LPSection3() {
 
   return (
     <>
-      <div className="h-screen bg-gray-400 text-9xl">PLACEHOLDER START</div>
+      {/* <div className="h-screen bg-gray-400 text-9xl">PLACEHOLDER START</div> */}
       <section
         className="flex flex-col justify-start items-center w-screen h-screen bg-white top-0"
         id="Loading"
