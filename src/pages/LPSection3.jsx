@@ -10,6 +10,7 @@ export default function LPSection3() {
 
   useEffect(() => {
     const progressElement = document.querySelector("progress");
+    const specialTextElement = document.getElementById("specialText");
     console.log("Setting up GSAP animation");
 
     const tween = gsap.fromTo(
@@ -28,8 +29,10 @@ export default function LPSection3() {
             const progressValue = self.progress * 100;
             console.log("onUpdate progress:", self.progress);
             progressElement.value = progressValue;
-            if (self.progress === 1 && !isAnimationComplete) {
+            if (self.progress === 1) {
               setIsAnimationComplete(true);
+            } else {
+              setIsAnimationComplete(false);
             }
           },
           pin: "#Loading",
@@ -46,14 +49,20 @@ export default function LPSection3() {
       }
       tween.kill();
     };
-  }, [isAnimationComplete]);
+  }, []);
 
   useEffect(() => {
-    if (isAnimationComplete) {
-      console.log(
-        "isAnimationComplete state is true, updating text visibility"
-      );
+    const specialTextElement = document.getElementById("specialText");
+    if (specialTextElement) {
+      if (isAnimationComplete) {
+        specialTextElement.classList.remove("hidden");
+        specialTextElement.classList.add("block");
+      } else {
+        specialTextElement.classList.remove("block");
+        specialTextElement.classList.add("hidden");
+      }
     }
+    console.log("isAnimationComplete state changed:", isAnimationComplete);
   }, [isAnimationComplete]);
 
   return (
@@ -72,10 +81,7 @@ export default function LPSection3() {
             <progress max="100" value="0" className="w-full"></progress>
             <div>Loading a hurtful fact...</div>
           </div>
-          <div
-            id="specialText"
-            className={isAnimationComplete ? "block" : "hidden"}
-          >
+          <div id="specialText" className="hidden">
             You're not so special
           </div>
         </div>
