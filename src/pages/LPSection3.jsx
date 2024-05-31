@@ -112,7 +112,7 @@ export default function LPSection3() {
         <div
           ref={specialTextRef}
           id="specialText"
-          className="hidden text-[70px]"
+          className="hidden text-[4rem]"
         >
           <span className="line">You're </span>{" "}
           <span className="line">not</span>
