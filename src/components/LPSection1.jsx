@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function LPSection1() {
   const [words, setWords] = useState([]);
   const lettersRef = useRef([]);
-  const scrollRef = useRef(null);
 
   useEffect(() => {
     const string = "Is it only me?";
@@ -16,13 +15,13 @@ export default function LPSection1() {
       }))
     );
     setWords(splitWords);
-    console.log(splitWords)
+    console.log(splitWords);
   }, []);
 
   useEffect(() => {
-    if (scrollRef.current) {
+    if (lettersRef.current) {
       gsap.registerPlugin(ScrollTrigger);
-  
+
       lettersRef.current.forEach((wordLetters, wordIndex) => {
         wordLetters.forEach((letterEl, letterIndex) => {
           let moveAmount = 200; // default move amount
@@ -35,7 +34,7 @@ export default function LPSection1() {
             moveAmount = 500; // move certain letters up more in the first word
           } else if (wordIndex === 3 && letterIndex % 2 === 0) {
             moveAmount = 300; // move certain letters up more in the second word
-          } 
+          }
           gsap.to(letterEl, {
             y: `-=${moveAmount}`, // move up by moveAmount
             duration: 5,
@@ -43,9 +42,9 @@ export default function LPSection1() {
             ease: "sine.inOut",
             stagger: 0.2,
             scrollTrigger: {
-              trigger: scrollRef.current,
-              start: "-600 top",
-              end: "top 50%",
+              trigger: "#word",
+              start: "top top",
+              end: "bottom 50%",
               scrub: true,
               markers: true,
             },
@@ -53,31 +52,31 @@ export default function LPSection1() {
         });
       });
     }
-  }, [words]);  
+  }, [words]);
 
   return (
-    <div className="">
-      <section className="w-screen h-screen bg-custom-bg flex flex-col justify-center items-center space-y-4">
-        {words.map((word, wordIndex) => (
-          <div key={wordIndex} className="flex space-x-1">
-            {word.map((letter, letterIndex) => (
-              <span
-                key={letter.id}
-                ref={(el) => {
-                  if (!lettersRef.current[wordIndex]) {
-                    lettersRef.current[wordIndex] = [];
-                  }
-                  lettersRef.current[wordIndex][letterIndex] = el;
-                }}
-                className="uppercase font-bold text-[9rem] text-[white] tracking-tighter leading-none"
-              >
-                {letter.char}
-              </span>
-            ))}
-          </div>
-        ))}
-      </section>
-      <section ref={scrollRef} className="w-screen h-screen bg-[#0D2D75]"></section>
-    </div>
+    <section
+      id="word"
+      className="w-screen h-screen bg-custom-bg flex flex-col justify-center items-center space-y-4"
+    >
+      {words.map((word, wordIndex) => (
+        <div key={wordIndex} className="flex space-x-1">
+          {word.map((letter, letterIndex) => (
+            <span
+              key={letter.id}
+              ref={(el) => {
+                if (!lettersRef.current[wordIndex]) {
+                  lettersRef.current[wordIndex] = [];
+                }
+                lettersRef.current[wordIndex][letterIndex] = el;
+              }}
+              className="uppercase font-bold text-[9rem] text-[white] tracking-tighter leading-none"
+            >
+              {letter.char}
+            </span>
+          ))}
+        </div>
+      ))}
+    </section>
   );
 }
