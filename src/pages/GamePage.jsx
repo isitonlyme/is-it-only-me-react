@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
-import CardComponent from "../components/Card";
-import styles from "./styles.module.css";
+import Card from "../components/Card";
+import Button from "../components/Button";
 
 const to = (i) => ({
-  x: i * 8,
-  y: i * -4,
+  x: 0,
+  y: 0,
   scale: 1,
-  //rot: -10 + Math.random() * 20,
+  rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
 const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
@@ -32,7 +32,7 @@ function Game() {
       direction: [xDir],
       velocity: [vx],
     }) => {
-      const isMoveable = index !== cardStack.length -1;
+      const isMoveable = index !== cardStack.length - 1;
       if (!isMoveable) return;
       const trigger = vx > 0.2; // If you flick hard enough it should trigger the card to fly out
       if (!active && trigger) {
@@ -43,13 +43,13 @@ function Game() {
         if (index !== i) return; // We're only interested in changing spring-data for the current spring
         const isGone = gone.has(index); //
         const x = isGone ? (200 + window.innerWidth) * xDir : active ? mx : 0; // When a card is gone it flies out left or right, otherwise goes back to zero
-        //const rot = mx / 100 + (isGone ? xDir * 10 * vx : 0); // How much the card sed?tilts, flicking it harder makes it rotate faster
+        const rot = mx / 100 + (isGone ? xDir * 10 * vx : 0); // How much the card sed?tilts, flicking it harder makes it rotate faster
         const scale = active ? 1.1 : 1; // Active cards lift up a bit
         return {
           x,
-          //rot,
+          rot,
           scale,
-          delay: undefined,
+          delay: 0,
           config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
         };
       });
@@ -65,21 +65,22 @@ function Game() {
   }, [cardFling, addNewCard]);
 
   return (
-    <div>
-      <section>
-        <div className={styles.container}>
-          {cardStack.map((card, index) => (
-            <CardComponent
-              key={index}
-              card={card}
-              index={index}
-              zIndex={cardStack.length - index} // Set z-index based on card index
-              props={props[index]}
-              bind={bind}
-            />
-          ))}
-        </div>
-      </section>
+    <div className="bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 flex items-center justify-center h-[100vh] touch-none overflow-hidden relative">
+      <Button
+        label={"X"}
+        position={"absolute top-20 right-10 text-2xl bg-transparent"}
+        link={"/categories"}
+      />
+      {cardStack.map((card, index) => (
+        <Card
+          key={index}
+          card={card}
+          index={index}
+          zIndex={cardStack.length - index} // Set z-index based on card index
+          props={props[index]}
+          bind={bind}
+        />
+      ))}
     </div>
   );
 }

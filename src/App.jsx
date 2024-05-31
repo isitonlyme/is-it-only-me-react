@@ -10,9 +10,9 @@ function App() {
     <GameProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<GamePage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/categories" element={<CategoryPage />} />
-          <Route path="/game" element={<LandingPage />} />
+          <Route path="/game" element={<GamePage />} />
         </Routes>
       </BrowserRouter>
     </GameProvider>
