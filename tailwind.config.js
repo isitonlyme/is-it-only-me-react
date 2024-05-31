@@ -12,7 +12,11 @@ export default {
       backgroundColor: {
         "custom-bg": "#0D2D75", // Custom blue color
       },
+      backgroundImage: {
+        'gradient-to-bl': 'linear-gradient(to bottom left, #4F46E5, #667EEA, #4F46E5)',
+      },
     },
   },
   plugins: [],
 };
+
