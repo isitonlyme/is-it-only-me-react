@@ -12,19 +12,19 @@ export default function CategoryPage({ label }) {
     setShowModal(!showModal);
   };
   return (
-    <section className="flex flex-col justify-start items-center w-screen h-screen">
-      <h2 className="uppercase text-4xl tracking-wide mt-32">Categories</h2>
+    <section className="flex flex-col justify-start items-center w-screen h-screen bg-gradient-to-bl">
+      <h2 className="uppercase text-5xl font-bold tracking-wide mt-32 text-white">Categories</h2>
       <div className="flex flex-col justify-center items-center mt-10 text-xl">
-        <Link to="/game" onClick={() => chooseCategory("mixed")}>
+        <Link className="uppercase text-white mb-2 font-bold text-2xl" to="/game" onClick={() => chooseCategory("mixed")}>
           Mixed Edition
         </Link>
-        <Link to="/game" onClick={() => chooseCategory("date")}>
+        <Link className="uppercase text-white mb-2 font-bold text-2xl" to="/game" onClick={() => chooseCategory("date")}>
           Date Edition
         </Link>
-        <Link to="/game" onClick={() => chooseCategory("party")}>
+        <Link className="uppercase text-white mb-2 font-bold text-2xl" to="/game" onClick={() => chooseCategory("party")}>
           Party Edition
         </Link>
-        <Link to="/game" onClick={() => chooseCategory("spicy")}>
+        <Link className="uppercase text-white mb-2 font-bold text-2xl" to="/game" onClick={() => chooseCategory("spicy")}>
           Spicy Edition
         </Link>
       </div>
