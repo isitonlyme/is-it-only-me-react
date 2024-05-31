@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -8,9 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function LPSection1() {
   const [words, setWords] = useState([]);
-  const ref = useRef();
   const lettersRef = useRef([]);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
   useEffect(() => {
     const string = "Is it only me?";
@@ -24,38 +21,57 @@ export default function LPSection1() {
   }, []);
 
   useGSAP(() => {
+    // Initial animation triggered when the viewport reloads
     if (lettersRef.current) {
       lettersRef.current.forEach((wordLetters) => {
         wordLetters.forEach((letterEl) => {
-          // Set initial random position
-          gsap.set(letterEl, { y: `${Math.random() * 200 - 100}%`, x: `${Math.random() * 200 - 100}%`, rotate: Math.random() * 360 });
+          gsap.set(letterEl, {
+            // Customize initial positions and rotations for each letter
+            x: Math.random() < 0.5 ? "-100%" : "100%", // Move in from left or right side randomly
+            y: 0, // Move in from top or bottom side randomly
+            rotate: Math.random() * 360, // Random rotation
+          });
 
-          const tween = gsap.to(letterEl, {
+          gsap.to(letterEl, {
             y: 0,
             x: 0,
             rotate: 0,
             duration: 2,
             ease: "power2.out",
+            stagger: 0.1,
+          });
+        });
+      });
+    }
+
+    // Scroll-triggered animation for rotating and mixing again
+    if (lettersRef.current) {
+      lettersRef.current.forEach((wordLetters, wordIndex) => {
+        wordLetters.forEach((letterEl, letterIndex) => {
+          let moveAmount = 400; // default move amount
+          // Adjust conditions based on wordIndex
+          if (wordIndex === 0 && letterIndex % 3 === 0) {
+            moveAmount = 500; // move certain letters up more in the first word
+          } else if (wordIndex === 1 && letterIndex % 2 === 0) {
+            moveAmount = 600; // move certain letters up more in the second word
+          } else if (wordIndex === 2 && letterIndex % 3 === 0) {
+            moveAmount = 600; // move certain letters up more in the first word
+          } else if (wordIndex === 3 && letterIndex % 2 === 0) {
+            moveAmount = 600; // move certain letters up more in the second word
+          }
+          gsap.to(letterEl, {
+            y: `-=${moveAmount}`, // move up by moveAmount
+            duration: 5,
+            ease: "sine.inOut",
+            stagger: 0.1,
             scrollTrigger: {
               trigger: "#word",
-              start: "top top",
-              end: "bottom center",
+              start: "10 top", // Adjust the start position as needed
+              end: "bottom -50%", // Adjust the end position as needed
               scrub: true,
               markers: true,
-              onUpdate: (self) => {
-                if (self.progress === 1) {
-                  setIsAnimationComplete(true);
-                }
-              },
             },
           });
-
-          return () => {
-            if (tween.scrollTrigger) {
-              tween.scrollTrigger.kill();
-            }
-            tween.kill();
-          };
         });
       });
     }
@@ -64,10 +80,7 @@ export default function LPSection1() {
   return (
     <section
       id="word"
-      ref={ref}
-      className={`w-screen h-screen bg-gradient-to-bl flex flex-col justify-center items-center space-y-4 ${
-        isAnimationComplete ? "" : "fixed"
-      }`}
+      className="w-screen h-screen bg-gradient-to-bl flex flex-col justify-center items-center space-y-4"
     >
       {words.map((word, wordIndex) => (
         <div key={wordIndex} className="flex space-x-1">
@@ -90,3 +103,97 @@ export default function LPSection1() {
     </section>
   );
 }
+
+
+
+// import React, { useEffect, useRef, useState } from "react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// import { useGSAP } from "@gsap/react";
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// export default function LPSection1() {
+//   const [words, setWords] = useState([]);
+//   const ref = useRef();
+//   const lettersRef = useRef([]);
+//   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
+//   useEffect(() => {
+//     const string = "Is it only me?";
+//     const splitWords = string.split(" ").map((word) =>
+//       word.split("").map((char, charIndex) => ({
+//         id: `${charIndex}`,
+//         char,
+//       }))
+//     );
+//     setWords(splitWords);
+//   }, []);
+
+//   useGSAP(() => {
+//     if (lettersRef.current) {
+//       lettersRef.current.forEach((wordLetters) => {
+//         wordLetters.forEach((letterEl) => {
+//           // Set initial random position
+//           gsap.set(letterEl, { y: `${Math.random() * 200 - 100}%`, x: `${Math.random() * 300 - 100}%`, rotate: Math.random() * 360 });
+
+//           const tween = gsap.to(letterEl, {
+//             y: 0,
+//             x: 0,
+//             rotate: 0,
+//             duration: 2,
+//             ease: "power2.out",
+//             scrollTrigger: {
+//               trigger: "#word",
+//               start: "top center",
+//               end: "bottom center",
+//               scrub: true,
+//               markers: true,
+//               onUpdate: (self) => {
+//                 if (self.progress === 1) {
+//                   setIsAnimationComplete(true);
+//                 }
+//               },
+//             },
+//           });
+
+//           return () => {
+//             if (tween.scrollTrigger) {
+//               tween.scrollTrigger.kill();
+//             }
+//             tween.kill();
+//           };
+//         });
+//       });
+//     }
+//   }, [words]);
+
+//   return (
+//     <section
+//       id="word"
+//       ref={ref}
+//       className={`w-screen h-screen bg-gradient-to-bl flex flex-col justify-center items-center space-y-4 ${
+//         isAnimationComplete ? "" : "fixed"
+//       }`}
+//     >
+//       {words.map((word, wordIndex) => (
+//         <div key={wordIndex} className="flex space-x-1">
+//           {word.map((letter, letterIndex) => (
+//             <span
+//               key={letter.id}
+//               ref={(el) => {
+//                 if (!lettersRef.current[wordIndex]) {
+//                   lettersRef.current[wordIndex] = [];
+//                 }
+//                 lettersRef.current[wordIndex][letterIndex] = el;
+//               }}
+//               className="uppercase font-bold text-[9rem] text-[white] tracking-tighter leading-none"
+//             >
+//               {letter.char}
+//             </span>
+//           ))}
+//         </div>
+//       ))}
+//     </section>
+//   );
+// }
