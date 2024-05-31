@@ -87,12 +87,12 @@ function GamePage() {
       <div className="flex justify-between w-full px-4 pt-4 ">
         <Button
           label={"?"}
-          styling={"text-2xl bg-transparent"}
+          styling={"text-2xl bg-transparent text-white"}
           link={"/categories"}
         />
         <Button
           label={"X"}
-          styling={"text-2xl bg-transparent"}
+          styling={"text-2xl bg-transparent text-white"}
           link={"/categories"}
         />
       </div>
