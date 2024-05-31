@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         sans: ['"Space Grotesk"', ...defaultTheme.fontFamily.sans],
       },
+      backgroundColor: {
+        "custom-bg": "#0D2D75", // Custom blue color
+      },
     },
   },
   plugins: [],
