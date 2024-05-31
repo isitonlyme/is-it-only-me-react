@@ -222,33 +222,33 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen h-screen bg-white top-0"
+        className="flex flex-col justify-start items-center w-screen h-screen top-0"
         id="Loading"
         ref={ref}
       >
         <div>
-          <h2 className="uppercase text-4xl tracking-wide mt-32">
+          <h2 className="uppercase text-4xl tracking-wide mt-32 font-extrabold text-white">
             Sorry to tell you
           </h2>
-          <div className="flex flex-col justify-center items-center mt-10 text-xl">
+          <div className="flex flex-col justify-center items-center mt-10 text-xl mb-24">
             <progress
               ref={progressRef}
               max="100"
               value="0"
               className="w-full"
             ></progress>
-            <div>Loading a hurtful fact...</div>
+            <div className="mt-5 text-white">Loading a hurtful fact...</div>
           </div>
         </div>
         <div
           ref={specialTextRef}
           id="specialText"
-          className="hidden text-[4rem]"
+          className="hidden text-[6rem] font-bold uppercase text-white text-center leading-none"
         >
           <span className="line">You're </span>{" "}
-          <span className="line">not</span>
+          <span className="line">not so</span>
           <br></br>
-          <span className="line">so special</span>
+          <span className="line">special</span>
         </div>
       </section>
       <div className="h-[100vh] bg-gray-400 text-4xl" id="Ending">
