@@ -1,4 +1,3 @@
-
 import LPSection1 from "../components/LPSection1";
 import LPSection2 from "../components/LPSection2";
 import LPSection3 from "./LPSection3";
