@@ -33,6 +33,7 @@ export default function LandingPage() {
           <LPSection1/>
           <LPSection2/>
           <LPSection3 />
+          <LPSection5/>
         </div>
       )}
     </div>

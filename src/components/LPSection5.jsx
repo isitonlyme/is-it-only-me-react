@@ -118,7 +118,7 @@ export default function LPSection5() {
             </animated.div>
           ))}
         </div>
-        <p className="text-2xl text-center text-white">
+        <p className="text-2xl text-center text-white font-bold mx-10">
           Let's explore the unspoken together
         </p>
         <Button
