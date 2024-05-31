@@ -25,15 +25,15 @@ export default function LPSection3() {
           scrub: true,
           markers: true,
           onUpdate: (self) => {
+            const progressValue = self.progress * 100;
             console.log("onUpdate progress:", self.progress);
-            progressElement.value = self.progress * 100;
+            progressElement.value = progressValue;
+            if (self.progress === 1 && !isAnimationComplete) {
+              setIsAnimationComplete(true);
+            }
           },
           pin: "#Loading",
           pinSpacing: true,
-          onComplete: () => {
-            console.log("Animation complete");
-            setIsAnimationComplete(true);
-          },
         },
       }
     );
@@ -46,11 +46,13 @@ export default function LPSection3() {
       }
       tween.kill();
     };
-  }, []);
+  }, [isAnimationComplete]);
 
   useEffect(() => {
     if (isAnimationComplete) {
-      console.log("isAnimationComplete state is true");
+      console.log(
+        "isAnimationComplete state is true, updating text visibility"
+      );
     }
   }, [isAnimationComplete]);
 
