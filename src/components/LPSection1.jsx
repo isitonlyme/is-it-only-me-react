@@ -69,7 +69,6 @@ export default function LPSection1() {
               start: "10 top", // Adjust the start position as needed
               end: "bottom -50%", // Adjust the end position as needed
               scrub: true,
-              markers: true,
             },
           });
         });
