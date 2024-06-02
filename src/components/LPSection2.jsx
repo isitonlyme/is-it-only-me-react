@@ -59,7 +59,7 @@ export default function LPSection2() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
+    <div className="h-screen flex flex-col justify-center items-center">
       <section className="h-screen">
         <div className="max-w-screen-lg px-4 ">
           <h2
@@ -71,7 +71,7 @@ export default function LPSection2() {
         </div>
         <div
           id="marqueeDiv"
-          className="pt-32 overflow-hidden relative w-full h-full"
+          className="pt-32 overflow-hidden relative w-full h-full overflow-hidden"
         >
           <div className="flex flex-col">
             <span
