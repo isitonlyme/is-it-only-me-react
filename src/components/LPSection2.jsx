@@ -7,6 +7,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function LPSection2() {
   const marqueeRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 75%",
+            end: "top 50%",
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    // Cleanup function to kill the animation and ScrollTrigger instance
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   useEffect(() => {
     if (marqueeRefs.every((ref) => ref.current)) {
@@ -26,7 +51,6 @@ export default function LPSection2() {
               start: "top bottom",
               end: "bottom top",
               scrub: true,
-              markers: true,
             },
           }
         );
@@ -37,11 +61,14 @@ export default function LPSection2() {
   return (
     <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
       <section className="h-screen">
-        <h2 className="text-white text-4xl font-semibold text-center px-5">
-          You’ve probably wondered
-          <br />
-          that at some point.
-        </h2>
+        <div className="max-w-screen-lg px-4 ">
+          <h2
+            ref={textRef}
+            className="text-white text-4xl font-semibold text-center mx-12"
+          >
+            You’ve probably wondered<br></br>that at some point.
+          </h2>
+        </div>
         <div
           id="marqueeDiv"
           className="pt-32 overflow-hidden relative w-full h-full"
@@ -77,14 +104,15 @@ export default function LPSection2() {
             </span>
           </div>
         </div>
-        <div className="flex justify-center items-center flex-col">
-          <Button
-            label={"Play Game"}
-            styling={"bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"}
-            link={"/categories"}
-          />
-        </div>
       </section>
+      <div className="flex justify-center items-center flex-col visible">
+          <Button
+            label="Play Game"
+            styling="bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"
+            link="/categories"
+          />
+          <p className="text-sm text-white mt-2">Or keep scrolling</p>
+        </div>
     </div>
   );
 }
