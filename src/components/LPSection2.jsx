@@ -59,7 +59,7 @@ export default function LPSection2() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
       <section className="h-screen">
         <div className="max-w-screen-lg px-4 ">
           <h2
@@ -106,13 +106,13 @@ export default function LPSection2() {
         </div>
       </section>
       <div className="flex justify-center items-center flex-col visible">
-          <Button
-            label="Play Game"
-            styling="bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"
-            link="/categories"
-          />
-          <p className="text-sm text-white mt-2">Or keep scrolling</p>
-        </div>
+        <Button
+          label="Play Game"
+          styling="bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"
+          link="/categories"
+        />
+        <p className="text-sm text-white mt-2">Or keep scrolling</p>
+      </div>
     </div>
   );
 }

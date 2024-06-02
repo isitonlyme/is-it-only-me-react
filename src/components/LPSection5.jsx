@@ -76,7 +76,7 @@ export default function LPSection5() {
   );
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] touch-none overflow-hidden relative">
+    <div className="flex flex-col items-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] overflow-hidden relative">
       <div className="flex flex-col items-center justify-center flex-grow space-y-10">
         <div className="relative flex flex-col items-center justify-center flex-shrink-0 h-[60vh]">
           <div
