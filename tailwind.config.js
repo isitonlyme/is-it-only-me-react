@@ -16,6 +16,12 @@ export default {
         "gradient-to-bl":
           "linear-gradient(to bottom left, #4F46E5, #667EEA, #4F46E5)",
       },
+      top: {
+        10: "10%",
+        30: "30%",
+        50: "50%",
+        70: "80%",
+      },
       keyframes: {
         scaleUp: {
           from: {
@@ -55,4 +61,3 @@ export default {
 
   plugins: [],
 };
-
