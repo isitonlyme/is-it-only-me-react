@@ -78,7 +78,7 @@ export default function LPSection5() {
   return (
     <div className="flex flex-col items-center h-[100vh] overflow-hidden relative">
       <div className="flex flex-col items-center justify-center flex-grow space-y-10">
-        <p className="text-3xl text-center text-[#D0EE1A] font-bold mx-10">
+        <p className="text-3xl text-center text-white font-bold mx-10">
           Select a topic and explore the unspoken with your friends
         </p>
         <div className="relative flex flex-col items-center justify-center flex-shrink-0 h-[60vh] w-[100vw]">
