@@ -1,8 +1,6 @@
 import LPSection1 from "../components/LPSection1";
 import LPSection2 from "../components/LPSection2";
 import LPSection3 from "./LPSection3";
-import LPSection4 from "../components/LPSection4";
-import LPSection4_1 from "../components/LPSection4_1";
 import LPSection4_2_textPlugin from "../components/LPSection4_2_textPlugin";
 import LPSection5 from "../components/LPSection5";
 import Introduction from "../components/Introduction";
@@ -29,17 +27,15 @@ export default function LandingPage() {
     <div>
       {!isMobile ? (
         <div>
-          <Introduction/>
+          <Introduction />
         </div>
       ) : (
         <div>
-          <LPSection1/>
-          <LPSection2/>
+          <LPSection1 />
+          <LPSection2 />
           <LPSection3 />
-   {/* <LPSection4 />
-          <LPSection4_1 /> */}
           <LPSection4_2_textPlugin />
-          <LPSection5/>
+          <LPSection5 />
         </div>
       )}
     </div>
