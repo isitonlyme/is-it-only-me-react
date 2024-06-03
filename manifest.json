@@ -1,0 +1,21 @@
+{
+    "name": "Is it only me?",
+    "short_name": "IIOM?",
+    "start_url": "/",
+    "display": "fullscreen",
+    "background_color": "#7D53FF",
+    "theme_color": "#7D53FF",
+    "description": "Explore the unspoken and find out how weird you are",
+    "icons": [
+      {
+        "src": "/192x192-icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/512x512-icon.png.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
