@@ -6,7 +6,7 @@ import Button from "./Button";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LPSection2() {
-  const marqueeRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const marqueeRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function LPSection2() {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
-      <section className="h-screen">
+      <section className="h-screen overflow-hidden">
         <div className="max-w-screen-lg px-4 ">
           <h2
             ref={textRef}
@@ -69,39 +69,46 @@ export default function LPSection2() {
             You’ve probably wondered<br></br>that at some point.
           </h2>
         </div>
-        <div className="overflow-hidden">
+        <div className="">
           <div
             id="marqueeDiv"
             className="pt-32 relative w-full h-full overflow-hidden"
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col pb-20">
               <span
                 ref={marqueeRefs[0]}
-                className="marquee text-2xl bg-white text-center p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
+                className="marquee text-3xl bg-white text-center p-1 mb-5 inline-block transform rotate-2 whitespace-nowrap"
                 style={{ top: "0px" }}
               >
                 that has an official date outfit?
               </span>
               <span
                 ref={marqueeRefs[1]}
-                className="marquee text-2xl  text-center bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
+                className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
                 style={{ top: "30px" }}
               >
                 that has a crush on Bill Clinton?
               </span>
               <span
                 ref={marqueeRefs[2]}
-                className="marquee text-2xl  text-center bg-white p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
+                className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
                 style={{ top: "60px" }}
               >
                 who feels a bit of relief when plans get canceled?
               </span>
               <span
                 ref={marqueeRefs[3]}
-                className="marquee  text-center text-2xl bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
+                className="marquee  text-center text-3xl bg-white p-1 mb-6 inline-block transform -rotate-0 whitespace-nowrap"
                 style={{ top: "90px" }}
               >
                 who enjoys the smell of gasoline?
+              </span>
+              <span
+                ref={marqueeRefs[4]}
+                className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
+                style={{ top: "90px" }}
+              >
+                who judges people by their taste in music or TV shows?
               </span>
             </div>
           </div>
