@@ -4,7 +4,8 @@ import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import swipe from "../sounds/swipe.mp3";
+import swipe from "../assets/sounds/swipe.mp3";
+import Modal from "../components/Modal";
 
 const to = (i) => ({
   x: 0,
@@ -20,7 +21,13 @@ function GamePage() {
   const [gone] = useState(() => new Set());
   const [cardFling, setCardFling] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState("Take Me Back");
   const audioRef = useRef(null);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   const [props, api] = useSprings(cardStack.length, (i) => ({
     ...to(i),
@@ -76,31 +83,17 @@ function GamePage() {
   // show a button that takes you to category page
   useEffect(() => {
     if (gone.size === cardStack.length - 1) {
-      setShowButton(true);
+      setButtonLabel("Play Again");
     }
   }, [gone.size, cardStack.length]);
 
-
-
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] touch-none overflow-hidden relative">
-      <div className="flex justify-between w-full px-4 pt-4 ">
-        <Button
-          label={"?"}
-          styling={"text-2xl bg-transparent text-white"}
-          link={"/categories"}
-        />
-        <Button
-          label={"X"}
-          styling={"text-2xl bg-transparent text-white"}
-          link={"/categories"}
-        />
-      </div>
+    <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
       <audio ref={audioRef}>
-      <source src={swipe} type="audio/mpeg" />
-      <p>Your browser does not support the audio element.</p>
-    </audio>
-      <div className="relative flex flex-col items-center justify-center flex-grow -mt-52">
+        <source src={swipe} type="audio/mpeg" />
+        <p>Your browser does not support the audio element.</p>
+      </audio>
+      <div className="relative flex flex-col items-center justify-center flex-grow -mb-20x">
         {cardStack.map((card, index) => (
           <Card
             key={index}
@@ -112,13 +105,19 @@ function GamePage() {
           />
         ))}
       </div>
-      {showButton && (
+      <div className="flex justify-center w-full p-4 gap-4 mb-24">
         <Button
-          label={"Play Again"}
-          styling={" bg-[#e1f353] absolute bottom-36 left-36 text-black rounded-[10px] shadow-xl"}
+          label={buttonLabel}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px]"}
           link={"/categories"}
         />
-      )}
+        <Button
+          label={"?"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px] px-6"}
+          onClick={toggleModal}
+        />
+      </div>
+      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
     </div>
   );
 }

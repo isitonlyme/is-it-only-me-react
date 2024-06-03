@@ -5,15 +5,15 @@ import Button from "./Button";
 
 const cards = [
   {
-    title: "DISCUSS...",
+    title: "Discuss...",
     question: "with your friends and see if you are weird :)",
   },
   {
-    title: "SWIPE...",
+    title: "Swipe...",
     question: "through our cards with controversial topics",
   },
   {
-    title: "IS IT ONLY ME...",
+    title: "Is it only me...",
     question: "that likes trying out a game before playing it?",
   },
 ];
@@ -63,12 +63,12 @@ export default function LPSection5() {
           config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
         };
       });
-      if (!active && gone.size === cards.length)
-        setTimeout(() => {
-          gone.clear();
-          api.start((i) => to(i));
-          setShowButton(false);
-        }, 4500);
+      // if (!active && gone.size === cards.length)
+      //   setTimeout(() => {
+      //     gone.clear();
+      //     api.start((i) => to(i));
+      //     setShowButton(false);
+      //   }, 4500);
       if (gone.size === 3) {
         setShowButton(true);
       }
@@ -76,22 +76,27 @@ export default function LPSection5() {
   );
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] overflow-hidden relative">
+    <div className="flex flex-col items-center h-[100vh] overflow-hidden relative">
       <div className="flex flex-col items-center justify-center flex-grow space-y-10">
-        <div className="relative flex flex-col items-center justify-center flex-shrink-0 h-[60vh]">
+        <p className="text-3xl text-center text-[#D0EE1A] font-bold mx-10">
+          Select a topic and explore the unspoken with your friends
+        </p>
+        <div className="relative flex flex-col items-center justify-center flex-shrink-0 h-[60vh] w-[100vw]">
           <div
             className={`transition-opacity duration-1000 ease-in-out ${
               showButton ? "opacity-100" : "opacity-0"
             }`}
           >
             {showButton && (
+              <>
               <Button
                 label={"DO NOT PRESS!"}
                 styling={
-                  " bg-red-700/70 backdrop-blur-2xl border border-slate-700 text-white rounded-full shadow-2xl px-20 py-20 w-20 h-20 flex justify-center items-center text-2xl"
+                  "h-28 w-28 text-xl rounded-full bg-red-700/70 text-white shadow-[0_8px_#292929] active:shadow-[0_3px] active:translate-y-[5px] hover:bg-red-900/70 hover:cursor-pointer"
                 }
                 link={"/categories"}
               />
+            </>
             )}
           </div>
           {props.map(({ x, y, rot, scale }, i) => (
@@ -105,25 +110,26 @@ export default function LPSection5() {
                 style={{
                   transform: interpolate([rot, scale], trans),
                 }}
-                className="flex flex-col bg-white/0 backdrop-blur-2xl w-[80vh] max-w-[300px] h-[85vh] max-h-[510px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
+                className="flex flex-col bg-gradient-to-b from-[#D0EE1A]/40 to-[#7D53FF] backdrop-blur-2xl w-[80vh] max-w-[300px] h-[85vh] max-h-[510px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
               >
-                <p className="text-indigo-700 uppercase pb-20 text-2xl">
-                  TEST EDITION
+                <p className="text-2xl flex justify-center pb-20 select-none">
+                  <span className="bg-[#7D53FF] text-[#D0EE1A] px-2 rounded-full mt-6">
+                    How to play
+                  </span>
                 </p>
-                <h3 className="font-bold text-white text-4xl pb-20">
+                <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4 select-none">
                   {cards[i].title}
                 </h3>
-                <p className="text-white text-3xl">{cards[i].question}</p>
+                <p className="text-[#D0EE1A] text-3xl select-none">{cards[i].question}</p>
               </animated.div>
             </animated.div>
           ))}
         </div>
-        <p className="text-2xl text-center text-white font-bold mx-10">
-          Let's explore the unspoken together
-        </p>
         <Button
           label={"Play Game"}
-          styling={"bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"}
+          styling={
+            "bg-[#e1f353] text-[#7D53FF] rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
+          }
           link={"/categories"}
         />
       </div>

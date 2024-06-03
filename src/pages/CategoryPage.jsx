@@ -2,67 +2,66 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import { useGame } from "../context/GameContext";
-import { Link } from "react-router-dom";
 
-export default function CategoryPage({ label }) {
+export default function CategoryPage() {
   const { chooseCategory } = useGame();
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+
   return (
-    <section className="flex flex-col justify-start items-center w-screen h-screen bg-gradient-to-bl">
-      <h2 className="uppercase text-5xl font-bold tracking-wide mt-32 text-white">
-        Categories
-      </h2>
-      <div className="flex flex-col justify-center items-center mt-10 text-xl">
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
-          onClick={() => chooseCategory("mixed")}
-        >
-          Mixed Edition
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
-          onClick={() => chooseCategory("date")}
-        >
-          Date Edition
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
-          onClick={() => chooseCategory("party")}
-        >
-          Party Edition
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
-          onClick={() => chooseCategory("spicy")}
-        >
-          Spicy Edition
-        </Link>
+    <section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4">
+      <div className="flex flex-col items-center gap-4">
+        <Button 
+        label={"Is it only me?"}
+        styling={"text-2xl border-2 border-[#D0EE1A] rounded-full px-4 text-[#D0EE1A] py-0"}
+        link={"/"}
+        />
+        <h2 className="text-4xl md:text-6xl font-bold tracking-wide text-[#D0EE1A] text-center">
+          Choose topic to discuss:
+        </h2>
       </div>
-      <div className="absolute bottom-5 right-4">
+      <div className="flex flex-col justify-center items-center text-xl gap-4 font-bold">
+        <Button
+          label={"Mixed"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
+          onClick={() => chooseCategory("mixed")}
+          link={"/game"}
+        />
+        <Button
+          label={"Dating"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
+          onClick={() => chooseCategory("date")}
+          link={"/game"}
+        />
+        <Button
+          label={"Spicy"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
+          onClick={() => chooseCategory("spicy")}
+          link={"/game"}
+        />
+        <Button
+          label={"Party"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
+          onClick={() => chooseCategory("party")}
+          link={"/game"}
+        />
+      </div>
+      <div className="flex justify-center w-full p-4 gap-4 mt-12">
         <Button
           label={"Home"}
-          styling={
-            " bg-[#e1f353] bottom-36 left-36 text-black rounded-[10px] shadow-xl mx-3"
-          }
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] font-bold active:translate-y-[5px]"}
           link={"/"}
         />
         <Button
-          label="How to play"
+          label={"?"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] px-6 font-bold active:translate-y-[5px]"}
           onClick={toggleModal}
-          styling={
-            "bg-[#e1f353] bottom-36 left-36 text-black rounded-[10px] shadow-xl"
-          }
         />
       </div>
-      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
+      <Modal show={showModal} onClose={toggleModal} className="scaleUp" />
     </section>
   );
 }

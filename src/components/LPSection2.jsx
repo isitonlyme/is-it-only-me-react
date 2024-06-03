@@ -6,7 +6,14 @@ import Button from "./Button";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LPSection2() {
-  const marqueeRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const marqueeRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -37,7 +44,7 @@ export default function LPSection2() {
     if (marqueeRefs.every((ref) => ref.current)) {
       marqueeRefs.forEach((ref, index) => {
         const element = ref.current;
-        const direction = index % 2 === 0 ? 100 : -100;
+        const direction = index % 2 === 0 ? 100 : -200;
 
         gsap.fromTo(
           element,
@@ -50,7 +57,7 @@ export default function LPSection2() {
               trigger: element,
               start: "top bottom",
               end: "bottom top",
-              scrub: true,
+              scrub: index === 0 ? 1 : index === 3 ? 3 : 0.2, // Adjust the scrub value for each span
             },
           }
         );
@@ -60,56 +67,74 @@ export default function LPSection2() {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
-      <section className="h-screen">
+      <section className="h-screen overflow-hidden">
         <div className="max-w-screen-lg px-4 ">
           <h2
             ref={textRef}
-            className="text-white text-4xl font-semibold text-center mx-12"
+            className="text-4xl font-semibold text-center mx-12 text-[#D0EE1A]"
           >
             You’ve probably wondered<br></br>that at some point.
           </h2>
         </div>
-        <div
-          id="marqueeDiv"
-          className="pt-32 overflow-hidden relative w-full h-full overflow-hidden"
-        >
-          <div className="flex flex-col">
-            <span
-              ref={marqueeRefs[0]}
-              className="marquee text-2xl bg-white text-center p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
-              style={{ top: "0px" }}
-            >
-              that has an official date outfit?
-            </span>
-            <span
-              ref={marqueeRefs[1]}
-              className="marquee text-2xl  text-center bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
-              style={{ top: "30px" }}
-            >
-              that has a crush on Bill Clinton?
-            </span>
-            <span
-              ref={marqueeRefs[2]}
-              className="marquee text-2xl  text-center bg-white p-1 mb-5 inline-block transform rotate-12 whitespace-nowrap"
-              style={{ top: "60px" }}
-            >
-              who feels a bit of relief when plans get canceled?
-            </span>
-            <span
-              ref={marqueeRefs[3]}
-              className="marquee  text-center text-2xl bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
-              style={{ top: "90px" }}
-            >
-              who enjoys the smell of gasoline?
-            </span>
+        <div className="">
+          <div
+            id="marqueeDiv"
+            className="pt-32 relative w-full h-full overflow-hidden"
+          >
+            <div className=" pb-20">
+              <span
+                ref={marqueeRefs[0]}
+                className="marquee text-3xl bg-white text-center p-1 mb-5 flex flex-col  mx-52 inline-block transform rotate-2 whitespace-nowrap"
+                style={{ top: "0px" }}
+              >
+                that has an official date outfit?
+              </span>
+              <span
+                ref={marqueeRefs[1]}
+                className="marquee text-4xl  text-center bg-white p-1 mb-5 mx-52 inline-block transform -rotate-12 whitespace-nowrap"
+                style={{ top: "30px" }}
+              >
+                that has a crush on Bill Clinton?
+              </span>
+              <span
+                ref={marqueeRefs[2]}
+                className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform rotate-8 whitespace-nowrap"
+                style={{ top: "60px" }}
+              >
+                who feels a bit of relief when plans get canceled?
+              </span>
+              <span
+                ref={marqueeRefs[3]}
+                className="marquee  text-center text-5xl bg-white p-1 mx-32 mb-6 inline-block transform -rotate-0 whitespace-nowrap"
+                style={{ top: "90px" }}
+              >
+                am I weird?{" "}
+              </span>
+              <span
+                ref={marqueeRefs[4]}
+                className="marquee text-3xl text-center bg-white p-1 mb-5 inline-block transform -rotate-0"
+                style={{ top: "90px" }}
+              >
+                who judges people by their taste in music or TV shows?
+              </span>
+              <span
+                ref={marqueeRefs[5]}
+                className="marquee text-3xl text-center mx-60 bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
+                style={{ top: "100px" }}
+              >
+                who enjoys the smell of gasoline?
+              </span>
+            </div>
           </div>
         </div>
       </section>
       <div className="flex justify-center items-center flex-col visible">
         <Button
-          label="Play Game"
-          styling="bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"
-          link="/categories"
+          label={"Play Game"}
+          styling={
+            "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
+          }
+          link={"/categories"}
         />
         <p className="text-sm text-white mt-2">Or keep scrolling</p>
       </div>
