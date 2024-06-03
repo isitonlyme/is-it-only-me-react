@@ -2,10 +2,11 @@ import LPSection1 from "../components/LPSection1";
 import LPSection2 from "../components/LPSection2";
 import LPSection3 from "./LPSection3";
 import LPSection5 from "../components/LPSection5";
+import Introduction from "../components/Introduction";
 import React, { useState, useEffect } from "react";
 
 export default function LandingPage() {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,10 +24,8 @@ export default function LandingPage() {
   return (
     <div>
       {!isMobile ? (
-        <div className="text-center">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            This is a mobile game
-          </h1>
+        <div>
+          <Introduction/>
         </div>
       ) : (
         <div>
