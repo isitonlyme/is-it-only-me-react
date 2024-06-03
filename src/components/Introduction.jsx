@@ -1,13 +1,14 @@
 export default function Introduction() {
     return (
       <section className="flex flex-col justify-center items-center w-screen h-screen">
-        <h2 className="uppercase text-8xl text-white font-bold mb-2">Is it only me?</h2>
-        <p className="text-white text-2xl font-thin">This game is mobile only. Scan this QR code and start playing </p>
-        <p className="text-white text-2xl font-thin">
+        <h2 className="text-8xl text-[#D0EE1A] font-bold mb-2">Is it only me?</h2>
+        <p className="text-[#D0EE1A] text-2xl font-thin">This game is mobile only. Scan this QR code and start playing </p>
+        <p className="text-[#D0EE1A] text-2xl font-thin">
           If you are an apple user, you can add Is It Only Me? to your homepage by
           following these steps.
         </p>
-        <ol className="text-white list-decimal mx-auto mt-8 text-2xl">
+        <div className="flex">
+        <ol className="text-[#D0EE1A] list-decimal mx-auto mt-8 text-2xl">
           <li>
             <p className="font-bold text-2xl">Open Safari</p>
             <p className="font-thin text-xl">
@@ -35,6 +36,8 @@ export default function Introduction() {
             </p>
           </li>
         </ol>
+        </div>
+
       </section>
     );
   }
