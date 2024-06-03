@@ -26,25 +26,25 @@ export default function CategoryPage() {
       <div className="flex flex-col justify-center items-center text-xl gap-4 font-bold">
         <Button
           label={"Mixed"}
-          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
           onClick={() => chooseCategory("mixed")}
           link={"/game"}
         />
         <Button
           label={"Dating"}
-          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
           onClick={() => chooseCategory("date")}
           link={"/game"}
         />
         <Button
           label={"Spicy"}
-          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
           onClick={() => chooseCategory("spicy")}
           link={"/game"}
         />
         <Button
           label={"Party"}
-          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
+          styling={"text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"}
           onClick={() => chooseCategory("party")}
           link={"/game"}
         />
@@ -52,12 +52,12 @@ export default function CategoryPage() {
       <div className="flex justify-center w-full p-4 gap-4 mt-12">
         <Button
           label={"Home"}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] font-bold"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] font-bold active:translate-y-[5px]"}
           link={"/"}
         />
         <Button
           label={"?"}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] px-6 font-bold"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] px-6 font-bold active:translate-y-[5px]"}
           onClick={toggleModal}
         />
       </div>

@@ -108,12 +108,12 @@ function GamePage() {
       <div className="flex justify-center w-full p-4 gap-4 mb-24">
         <Button
           label={buttonLabel}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px]"}
           link={"/categories"}
         />
         <Button
           label={"?"}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px] px-6"}
           onClick={toggleModal}
         />
       </div>
