@@ -116,10 +116,10 @@ export default function LPSection3() {
           id="specialText"
           className="hidden text-[6rem] font-bold  text-white text-center leading-none"
         >
-          <span className="line">You're</span> <br></br>
-          <span className="line">not so</span>
+          <span className="line text-main-color">You're</span> <br></br>
+          <span className="line text-main-color">not so</span>
           <br></br>
-          <span className="line">special</span>
+          <span className="line text-main-color">special</span>
         </div>
       </section>
     </>

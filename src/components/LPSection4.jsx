@@ -43,7 +43,7 @@ function LPSection4() {
       ref={sectionRef}
       className=" w-screen pt-[2em] flex flex-col items-center justify-center text-white "
     >
-      <h2 className="blok m-[0.5em] mt-[2em] text-center text-4xl font-semibold">
+      <h2 className="blok m-[0.5em] mt-[10rem] text-center text-4xl font-semibold">
         It's a common human experience for
       </h2>
 
@@ -61,7 +61,7 @@ function LPSection4() {
       </div>
 
       <h2 className="block m-[0.5em] text-center text-4xl font-semibold">
-        to question our own uniqueness.
+       of us to question our own uniqueness.
       </h2>
 
       <p className="pb-[3em]">* We made up that number</p>
