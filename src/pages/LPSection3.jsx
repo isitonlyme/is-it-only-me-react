@@ -124,9 +124,6 @@ export default function LPSection3() {
           <span className="line">special</span>
         </div>
       </section>
-      <div className="h-[100vh] bg-gray-400 text-4xl" id="Ending">
-        PLACEHOLDER END
-      </div>
     </>
   );
 }
