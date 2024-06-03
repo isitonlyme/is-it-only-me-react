@@ -12,57 +12,52 @@ export default function CategoryPage({ label }) {
     setShowModal(!showModal);
   };
   return (
-    <section className="flex flex-col justify-start items-center w-screen h-screen bg-gradient-to-bl">
-      <h2 className="text-6xl text-center font-bold tracking-wide mt-32">
-        Choose topic to play:
+    <section className="flex flex-col justify-start gap-12 items-center w-screen h-screen">
+      <h3 className="mt-20 text-2xl border-2 border-[#D0EE1A] rounded-full px-4 text-[#D0EE1A]">
+        Is it only me?
+      </h3>
+      <h2 className="text-6xl font-bold tracking-wide text-[#D0EE1A] text-center">
+        Choose topic to discuss:
       </h2>
-      <div className="flex flex-col justify-center items-center mt-10 text-xl">
-        <Link
-          className="uppercase text-white mb-5 font-regular text-4xl "
-          to="/game"
+      <div className="flex flex-col justify-center items-center text-xl gap-2 font-bold">
+        <Button
+          label={"Mixed"}
+          styling={"text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
           onClick={() => chooseCategory("mixed")}
-        >
-          Mixed
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
+          link={"/game"}
+        />
+        <Button
+          label={"Dating"}
+          styling={"text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
           onClick={() => chooseCategory("date")}
-        >
-          Date
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
-          onClick={() => chooseCategory("party")}
-        >
-          Party
-        </Link>
-        <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
-          to="/game"
+          link={"/game"}
+        />
+        <Button
+          label={"Spicy"}
+          styling={"text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
           onClick={() => chooseCategory("spicy")}
-        >
-          Spicy
-        </Link>
+          link={"/game"}
+        />
+        <Button
+          label={"Party"}
+          styling={"text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full"}
+          onClick={() => chooseCategory("party")}
+          link={"/game"}
+        />
       </div>
-      <div className="absolute bottom-5 right-4">
+      <div className="flex justify-center w-full p-4 gap-4">
         <Button
           label={"Home"}
-          styling={
-            " bg-[#e1f353] bottom-36 left-36 text-black rounded-[10px] shadow-xl mx-3"
-          }
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
           link={"/"}
         />
         <Button
-          label="How to play"
+          label={"?"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
           onClick={toggleModal}
-          styling={
-            "bg-[#e1f353] bottom-36 left-36 text-black rounded-[10px] shadow-xl"
-          }
         />
       </div>
-      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
+      <Modal show={showModal} onClose={toggleModal} className="scaleUp" />
     </section>
   );
 }
