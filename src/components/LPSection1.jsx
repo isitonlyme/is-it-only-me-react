@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function LPSection1() {
   const [words, setWords] = useState([]);
   const lettersRef = useRef([]);
+  const arrowRef = useRef();
 
   useEffect(() => {
     const string = "Is it only me?";
@@ -74,6 +75,26 @@ export default function LPSection1() {
         });
       });
     }
+    if (arrowRef.current) {
+      gsap.set(arrowRef.current, { opacity: 0 });
+      
+      // Delay appearance of the arrow
+      gsap.to(arrowRef.current, {
+        opacity: 1,
+        delay: 2,
+        duration: 0.5,
+        onComplete: () => {
+          // Pulse animation for the arrow (up and down movement)
+          gsap.to(arrowRef.current, {
+            y: -15, // Move up by 20px
+            repeat: Infinity,
+            yoyo: true,
+            ease: "power1.inOut",
+            duration: 0.8,
+          });
+        },
+      });
+    }
   }, [words]);
 
   return (
@@ -99,7 +120,12 @@ export default function LPSection1() {
           ))}
         </div>
       ))}
-      <span className="text-[30vw] text-[#D0EE1A] mt-[-40px] flex justify-start items-start">↓</span>
+      <span
+        ref={arrowRef}
+        className="text-[30vw] text-[#D0EE1A] mt-[-40px] flex justify-start items-start"
+      >
+        ↓
+      </span>
     </section>
   );
 }
