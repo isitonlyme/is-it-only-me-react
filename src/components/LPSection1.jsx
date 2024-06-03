@@ -79,7 +79,7 @@ export default function LPSection1() {
   return (
     <section
       id="word"
-      className="w-screen h-screen flex flex-col justify-center items-center space-y-3"
+      className="w-screen h-screen flex flex-col justify-center items-center "
     >
       {words.map((word, wordIndex) => (
         <div key={wordIndex} className="flex space-x-1">
@@ -92,14 +92,14 @@ export default function LPSection1() {
                 }
                 lettersRef.current[wordIndex][letterIndex] = el;
               }}
-              className="font-bold text-[30vw] text-[white] tracking-tighter leading-none"
+              className="font-bold text-[30vw] tracking-wide leading-none text-[#D0EE1A]"
             >
               {letter.char}
             </span>
           ))}
         </div>
       ))}
-      <p className="text-[30vw] ">↓</p>
+      <span className="text-[30vw] text-[#D0EE1A] mt-[-40px] flex justify-start items-start">↓</span>
     </section>
   );
 }

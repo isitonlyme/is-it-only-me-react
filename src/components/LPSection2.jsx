@@ -6,7 +6,13 @@ import Button from "./Button";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LPSection2() {
-  const marqueeRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
+  const marqueeRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -64,7 +70,7 @@ export default function LPSection2() {
         <div className="max-w-screen-lg px-4 ">
           <h2
             ref={textRef}
-            className="text-white text-4xl font-semibold text-center mx-12"
+            className="text-4xl font-semibold text-center mx-12 text-[#D0EE1A]"
           >
             You’ve probably wondered<br></br>that at some point.
           </h2>
@@ -116,9 +122,11 @@ export default function LPSection2() {
       </section>
       <div className="flex justify-center items-center flex-col visible">
         <Button
-          label="Play Game"
-          styling="bg-[#e1f353] text-black rounded-[10px] shadow-xl px-12"
-          link="/categories"
+          label={"Play Game"}
+          styling={
+            "bg-[#e1f353] text-[#7D53FF] rounded-[10px] shadow-xl px-12 text-2xl"
+          }
+          link={"/categories"}
         />
         <p className="text-sm text-white mt-2">Or keep scrolling</p>
       </div>
