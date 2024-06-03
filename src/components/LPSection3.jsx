@@ -98,7 +98,7 @@ export default function LPSection3() {
         ref={ref}
       >
         <div>
-          <h2 className=" text-4xl tracking-wide mt-32 font-extrabold text-white">
+          <h2 className=" text-4xl tracking-wide mt-32 font-bold text-white">
             Sorry to tell you
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-24">
@@ -108,7 +108,9 @@ export default function LPSection3() {
               value="0"
               className="w-full"
             ></progress>
-            <div className="mt-5 text-white">Loading a hurtful fact...</div>
+            <div className="mt-5 text-white font-normal">
+              Loading a hurtful fact...
+            </div>
           </div>
         </div>
         <div

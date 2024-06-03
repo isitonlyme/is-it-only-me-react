@@ -43,11 +43,11 @@ function LPSection4() {
       ref={sectionRef}
       className=" w-screen pt-[2em] flex flex-col items-center justify-center text-white "
     >
-      <h2 className="blok m-[0.5em] mt-[2em] text-center text-4xl font-semibold">
+      {/* <h2 className="blok m-[0.5em] mt-[2em] text-center text-4xl font-semibold">
         It's a common human experience for
-      </h2>
+      </h2> */}
 
-      <div className="text-center text-[5.9em] font-semibold relative">
+      <div className="text-center text-[5.9em] font-semibold relative pt-8">
         <div className="flex gap-0.1 text-main-color">
           <div id="procent" ref={procentRef}>
             .....
@@ -55,16 +55,16 @@ function LPSection4() {
           <div
             id="asterisk"
             ref={asteriskRef}
-            className="absolute top-0 left-full ml-5 mt-3 text-3xl"
+            className="absolute top-0 left-full ml-1 mt-1 text-3xl"
           ></div>
         </div>
       </div>
 
-      <h2 className="block m-[0.5em] text-center text-4xl font-semibold">
-        to question our own uniqueness.
+      <h2 className="block mt-[-0.5em] text-center text-4xl font-normal">
+        of us to question<br></br>our own uniqueness.
       </h2>
 
-      <p className="pb-[3em]">* We made up that number</p>
+      <p className="pb-[3em] mt-[0.5em]">* We made up that number</p>
     </section>
   );
 }
