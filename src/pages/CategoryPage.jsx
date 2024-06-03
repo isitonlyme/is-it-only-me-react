@@ -13,37 +13,37 @@ export default function CategoryPage({ label }) {
   };
   return (
     <section className="flex flex-col justify-start items-center w-screen h-screen bg-gradient-to-bl">
-      <h2 className="uppercase text-5xl font-bold tracking-wide mt-32 text-white">
-        Categories
+      <h2 className="text-6xl text-center font-bold tracking-wide mt-32">
+        Choose topic to play:
       </h2>
       <div className="flex flex-col justify-center items-center mt-10 text-xl">
         <Link
-          className="uppercase text-white mb-5 font-regular text-2xl"
+          className="uppercase text-white mb-5 font-regular text-4xl "
           to="/game"
           onClick={() => chooseCategory("mixed")}
         >
-          Mixed Edition
+          Mixed
         </Link>
         <Link
           className="uppercase text-white mb-5 font-regular text-2xl"
           to="/game"
           onClick={() => chooseCategory("date")}
         >
-          Date Edition
+          Date
         </Link>
         <Link
           className="uppercase text-white mb-5 font-regular text-2xl"
           to="/game"
           onClick={() => chooseCategory("party")}
         >
-          Party Edition
+          Party
         </Link>
         <Link
           className="uppercase text-white mb-5 font-regular text-2xl"
           to="/game"
           onClick={() => chooseCategory("spicy")}
         >
-          Spicy Edition
+          Spicy
         </Link>
       </div>
       <div className="absolute bottom-5 right-4">
