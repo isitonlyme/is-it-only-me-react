@@ -18,11 +18,13 @@ function CardComponent({ card, zIndex, index, props, bind }) {
         style={{
           transform: interpolate([rot, scale], trans),
         }}
-        className="flex flex-col bg-white/0 backdrop-blur-2xl w-[80vh] max-w-[300px] h-[85vh] max-h-[510px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
+        className="flex flex-col bg-gradient-to-b from-[#D0EE1A]/40 to-[#7D53FF] backdrop-blur-2xl w-[80vh] max-w-[300px] h-[85vh] max-h-[510px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
       >
-        <p className='text-indigo-700 uppercase pb-20 text-2xl'>{card.category} EDITION</p>
-        <h3 className="font-bold text-white text-4xl pb-20">IS IT ONLY ME...</h3>
-        <p className='text-white text-3xl'>{card.question}</p>
+        <p className='text-2xl flex justify-center pb-20'>
+          <span className='bg-[#7D53FF] text-[#D0EE1A] px-2 rounded-full mt-6'>{card.category} edition</span>
+        </p>
+        <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4">Is it only me...</h3>
+        <p className='text-[#D0EE1A] text-3xl'>{card.question}</p>
       </animated.div>
     </animated.div>
   );
