@@ -36,4 +36,11 @@ progress::-moz-progress-bar {
     font-display: swap;
     src: url(/src/assets/fonts/PPPangaia-Medium.otf) format("opentype");
   }
+  @font-face {
+    font-family: "PPPangaia";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/src/assets/fonts/PPPangaia-Bold.otf) format("opentype");
+  }
 }
