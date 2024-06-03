@@ -14,9 +14,11 @@ export default function CategoryPage() {
   return (
     <section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4">
       <div className="flex flex-col items-center gap-4">
-        <h3 className="text-2xl border-2 border-[#D0EE1A] rounded-full px-4 text-[#D0EE1A]">
-          Is it only me?
-        </h3>
+        <Button 
+        label={"Is it only me?"}
+        styling={"text-2xl border-2 border-[#D0EE1A] rounded-full px-4 text-[#D0EE1A] py-0"}
+        link={"/"}
+        />
         <h2 className="text-4xl md:text-6xl font-bold tracking-wide text-[#D0EE1A] text-center">
           Choose topic to discuss:
         </h2>
