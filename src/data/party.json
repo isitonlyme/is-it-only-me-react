@@ -7,22 +7,22 @@
   {
     "id": 1,
     "category": "party",
-    "question": "that drinks water inbetween drinks?"
+    "question": "who has drunk texted an ex?"
   },
   {
     "id": 2,
     "category": "party",
-    "question": "likes apples?"
+    "question": "who has thrown up at a party?"
   },
   {
     "id": 3,
     "category": "party",
-    "question": "that can't party after midnight?"
+    "question": "who has drunk dialed their boss?"
   },
   {
     "id": 4,
     "category": "party",
-    "question": "who refuses to get somehwere if I need to queue?"
+    "question": "who has cried in public while drunk?"
   },
   {
     "id": 5,
@@ -32,7 +32,7 @@
   {
     "id": 6,
     "category": "party",
-    "question": "that carries nuts in the pockets when going out?"
+    "question": "who has told someone they love them while drunk?"
   },
   {
     "id": 7,
@@ -42,12 +42,12 @@
   {
     "id": 8,
     "category": "party",
-    "question": "who only showers if I have a date?"
+    "question": "who has passed out in the bathroom at a party?"
   },
   {
     "id": 9,
     "category": "party",
-    "question": "that has an official date outfit?"
+    "question": "who has taken embarrassing videos while drunk?"
   },
   {
     "id": 10,
@@ -67,12 +67,12 @@
   {
     "id": 13,
     "category": "party",
-    "question": "who finds it oddly satisfying to peel off sunburned skin?"
+    "question": "who finds it satisfying to peel off sunburned skin?"
   },
   {
     "id": 14,
     "category": "party",
-    "question": "who sometimes lies about being busy to avoid social events?"
+    "question": "who lies about being busy to avoid social events?"
   },
   {
     "id": 15,
@@ -82,11 +82,176 @@
   {
     "id": 16,
     "category": "party",
-    "question": "who feels a bit of satisfaction when my ex's new relationship doesn't work out?"
+    "question": "who feels satisfaction when my ex's new relationship doesn't work out?"
   },
   {
     "id": 17,
     "category": "party",
     "question": "who enjoys the smell of gasoline?"
+  },
+  {
+    "id": 18,
+    "category": "party",
+    "question": "who sings in the shower?"
+  },
+  {
+    "id": 19,
+    "category": "party",
+    "question": "who talks to my pets like they're human?"
+  },
+  {
+    "id": 20,
+    "category": "party",
+    "question": "who prefers cold pizza for breakfast?"
+  },
+  {
+    "id": 21,
+    "category": "party",
+    "question": "that pees in the shower?"
+  },
+  {
+    "id": 22,
+    "category": "party",
+    "question": "that likes pineapple in the pizza?"
+  },
+  {
+    "id": 23,
+    "category": "party",
+    "question": "who laughs at my own jokes?"
+  },
+  {
+    "id": 24,
+    "category": "party",
+    "question": "who feels satisfaction from organizing things?"
+  },
+  {
+    "id": 25,
+    "category": "party",
+    "question": "who makes up stories about strangers in public?"
+  },
+  {
+    "id": 26,
+    "category": "party",
+    "question": "who pretends to be in a music video when I listen to music"
+  },
+  {
+    "id": 27,
+    "category": "party",
+    "question": "who has pretended to know someone at a party to avoid awkwardness?"
+  },
+  {
+    "id": 28,
+    "category": "party",
+    "question": "who has stolen something from a party?"
+  },
+  {
+    "id": 29,
+    "category": "party",
+    "question": "who has gone to a party just for the free food and drinks?"
+  },
+  {
+    "id": 30,
+    "category": "party",
+    "question": "who has told a stranger their life story at a party?"
+  },
+  {
+    "id": 31,
+    "category": "party",
+    "question": "has told a bad joke that killed the vibe at a party?"
+  },
+  {
+    "id": 32,
+    "category": "party",
+    "question": "has made out with multiple people at the same party?"
+  },
+  {
+    "id": 33,
+    "category": "party",
+    "question": "who talks to their plants?"
+  },
+  {
+    "id": 34,
+    "category": "party",
+    "question": "who checks their phone immediately after waking up?"
+  },
+  {
+    "id": 35,
+    "category": "party",
+    "question": "who still sleeps with a stuffed animal?"
+  },
+  {
+    "id": 36,
+    "category": "party",
+    "question": "who eats dessert before dinner?"
+  },
+  {
+    "id": 37,
+    "category": "party",
+    "question": "who googles themselves?"
+  },
+  {
+    "id": 38,
+    "category": "party",
+    "question": "who prefers to stay home on weekends?"
+  },
+  {
+    "id": 39,
+    "category": "party",
+    "question": "who still uses a childhood nickname?"
+  },
+  {
+    "id": 40,
+    "category": "party",
+    "question": "who checks behind the shower curtain for intruders?"
+  },
+  {
+    "id": 41,
+    "category": "party",
+    "question": "who enjoys folding laundry?"
+  },
+  {
+    "id": 42,
+    "category": "party",
+    "question": "who has fallen asleep during a meeting?"
+  },
+  {
+    "id": 43,
+    "category": "party",
+    "question": "who makes to-do lists for fun?"
+  },
+  {
+    "id": 44,
+    "category": "party",
+    "question": "who has finished an entire TV series in one weekend?"
+  },
+  {
+    "id": 45,
+    "category": "party",
+    "question": "who enjoys cleaning when stressed?"
+  },
+  {
+    "id": 46,
+    "category": "party",
+    "question": "who has pretended to be on the phone to avoid someone?"
+  },
+  {
+    "id": 47,
+    "category": "party",
+    "question": "who has re-gifted something they received?"
+  },
+  {
+    "id": 48,
+    "category": "party",
+    "question": "who has accidentally sent a text to the wrong person?"
+  },
+  {
+    "id": 49,
+    "category": "party",
+    "question": "who likes to put sriracha on almost everything?"
+  },
+  {
+    "id": 50,
+    "category": "party",
+    "question": "who hates the sound of cracking knuckles?"
   }
 ]

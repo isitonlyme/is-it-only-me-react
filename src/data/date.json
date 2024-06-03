@@ -2,61 +2,131 @@
   {
     "id": 0,
     "category": "date",
-    "question": " 1. who likes awkward dates?"
+    "question": "who has dated multiple people at the same time?"
   },
   {
     "id": 1,
     "category": "date",
-    "question": "2. that is dating?"
+    "question": "who has fallen in love on the first date?"
   },
   {
     "id": 2,
     "category": "date",
-    "question": "3. that dates ugly people to feel superior?"
+    "question": "that dates ugly people to feel superior?"
   },
   {
     "id": 3,
     "category": "date",
-    "question": "4. that wants to get married?"
+    "question": "that wants to get married?"
   },
   {
     "id": 4,
     "category": "date",
-    "question": "5. prefers cats to humans?"
+    "question": "that prefers cats to humans?"
   },
   {
     "id": 5,
     "category": "date",
-    "question": "6. that dates aliens?"
+    "question": "who has had a blind date?"
   },
   {
     "id": 6,
     "category": "date",
-    "question": "7. who is a stalker?"
+    "question": "that stalks the person I like?"
   },
   {
     "id": 7,
     "category": "date",
-    "question": "8. that hates Tinder?"
+    "question": "that hates Tinder?"
   },
   {
     "id": 8,
     "category": "date",
-    "question": "9. who only showers if I have a date?"
+    "question": "that only showers if I have a date?"
   },
   {
     "id": 9,
     "category": "date",
-    "question": "10. that has an official date outfit?"
+    "question": "that has an official date outfit?"
   },
   {
     "id": 10,
     "category": "date",
-    "question": "11. that thinks people with Samsung phones are unattractive?"
+    "question": "that thinks people with iPhones are more attractive?"
   },
   {
     "id": 11,
     "category": "date",
     "question": "who judges people by their taste in music or TV shows?"
+  },
+  {
+    "id": 12,
+    "category": "date",
+    "question": "who has ghosted someone after a date?"
+  },
+  {
+    "id": 13,
+    "category": "date",
+    "question": "who has lied about their age on a dating profile?"
+  },
+  {
+    "id": 14,
+    "category": "date",
+    "question": "who has gone on a date just for the free meal?"
+  },
+  {
+    "id": 15,
+    "category": "date",
+    "question": "who has used cheesy pickup lines?"
+  },
+  {
+    "id": 16,
+    "category": "date",
+    "question": "who has dated someone just to make an ex jealous?"
+  },
+  {
+    "id": 17,
+    "category": "date",
+    "question": "who has been in a long-distance relationship?"
+  },
+  {
+    "id": 18,
+    "category": "date",
+    "question": "who has had a secret relationship?"
+  },
+  {
+    "id": 19,
+    "category": "date",
+    "question": "who has dated someone they met at work?"
+  },
+  {
+    "id": 20,
+    "category": "date",
+    "question": "who has introduced a date to their family too soon?"
+  },
+  {
+    "id": 21,
+    "category": "date",
+    "question": "who has had a disastrous first date?"
+  },
+  {
+    "id": 22,
+    "category": "date",
+    "question": "who has dated someone they met on vacation?"
+  },
+  {
+    "id": 23,
+    "category": "date",
+    "question": "who has broken up with someone via text?"
+  },
+  {
+    "id": 24,
+    "category": "date",
+    "question": "who has been in a love triangle?"
+  },
+  {
+    "id": 25,
+    "category": "date",
+    "question": "who has dated someone with the same name as an ex?"
   }
 ]
