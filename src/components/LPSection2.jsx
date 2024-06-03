@@ -71,7 +71,7 @@ export default function LPSection2() {
         <div className="max-w-screen-lg px-4 ">
           <h2
             ref={textRef}
-            className="text-4xl font-semibold text-center mx-12 text-white"
+            className="text-4xl font-semibold text-center md:text-3xl lg:text-4xl text-white break-words w-full"
           >
             You’ve probably wondered<br></br>that at some point.
           </h2>
