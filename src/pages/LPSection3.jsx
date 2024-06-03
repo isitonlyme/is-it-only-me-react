@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -95,7 +94,7 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen h-screen top-0"
+        className=" flex flex-col justify-start items-center w-screen h-screen top-0"
         id="Loading"
         ref={ref}
       >

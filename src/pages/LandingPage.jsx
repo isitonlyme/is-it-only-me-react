@@ -1,7 +1,7 @@
 import LPSection1 from "../components/LPSection1";
 import LPSection2 from "../components/LPSection2";
 import LPSection3 from "./LPSection3";
-import LPSection4_2_textPlugin from "../components/LPSection4_2_textPlugin";
+import LPSection4 from "../components/LPSection4";
 import LPSection5 from "../components/LPSection5";
 import Introduction from "../components/Introduction";
 
@@ -34,7 +34,7 @@ export default function LandingPage() {
           <LPSection1 />
           <LPSection2 />
           <LPSection3 />
-          <LPSection4_2_textPlugin />
+          <LPSection4 />
           <LPSection5 />
         </div>
       )}
