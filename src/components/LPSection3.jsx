@@ -29,7 +29,6 @@ export default function LPSection3() {
         end: "+=150", // Adjust as needed for the length of the sticky section
         scrub: true,
         pin: true,
-        markers: process.env.NODE_ENV !== "production",
       },
     });
 
