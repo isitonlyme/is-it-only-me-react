@@ -5,6 +5,7 @@ import { useGame } from "../context/GameContext";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import swipe from "../assets/sounds/swipe.mp3";
+import Modal from "../components/Modal";
 
 const to = (i) => ({
   x: 0,
@@ -20,7 +21,12 @@ function GamePage() {
   const [gone] = useState(() => new Set());
   const [cardFling, setCardFling] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const audioRef = useRef(null);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   const [props, api] = useSprings(cardStack.length, (i) => ({
     ...to(i),
@@ -116,9 +122,10 @@ function GamePage() {
         <Button
           label={"?"}
           styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
-          link={"/categories"}
+          onClick={toggleModal}
         />
       </div>
+      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
     </div>
   );
 }
