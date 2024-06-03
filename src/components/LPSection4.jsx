@@ -41,7 +41,7 @@ function LPSection4() {
   return (
     <section
       ref={sectionRef}
-      className=" w-screen flex flex-col items-center justify-center bg-custom-bg text-white"
+      className=" w-screen flex flex-col items-center justify-center text-white"
     >
       <h2 className="block m-10 text-center text-4xl font-semibold">
         It's a common human experience for
@@ -60,11 +60,11 @@ function LPSection4() {
         </div>
       </div>
 
-      <h2 className="block m-10 text-center text-4xl font-semibold">
+      <h2 className="block m-[0.5em] text-center text-4xl font-semibold">
         to question our own uniqueness.
       </h2>
 
-      <p className="m-auto">* We made up that number</p>
+      <p className="pb-[3em]">* We made up that number</p>
     </section>
   );
 }
