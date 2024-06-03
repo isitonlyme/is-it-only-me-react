@@ -32,7 +32,7 @@ const Modal = ({ show, onClose }) => {
           isClosing ? "animate-scaleDown" : "animate-scaleUp"
         }`}
       >
-        <div className="flex justify-end mt-20">
+        <div className="flex justify-end">
           <button className="text-[#D0EE1A]" onClick={handleClose}>
             X
           </button>
@@ -41,9 +41,9 @@ const Modal = ({ show, onClose }) => {
           <h2 className="font-bold text-4xl tracking-wide text-[#D0EE1A]">
             How To Play
           </h2>
-          <ol className="text-[#D0EE1A] ml-16 mr-5 mt-8 text-2xl">
+          <ol className="text-[#D0EE1A] text-2xl">
             <li className="mb-5">
-              <p className="font-bold text-2xl">Pick Category</p>
+              <p className="text-2xl">Pick Category</p>
               <p className="text-xl mb-2">
                 To start, pick a category that fits your mood
               </p>
@@ -59,6 +59,7 @@ const Modal = ({ show, onClose }) => {
               <p className=" text-xl">
                 Swipe card to go to the next statement.
               </p>
+              <img src="/src/assets/card.png" width={100}/>
             </li>
             <li className="mb-5">
               <p className="font-bold text-2xl">Discuss</p>
