@@ -99,7 +99,7 @@ export default function LPSection3() {
         ref={ref}
       >
         <div>
-          <h2 className="uppercase text-4xl tracking-wide mt-32 font-extrabold text-white">
+          <h2 className=" text-4xl tracking-wide mt-32 font-extrabold text-white">
             Sorry to tell you
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-24">
@@ -115,9 +115,9 @@ export default function LPSection3() {
         <div
           ref={specialTextRef}
           id="specialText"
-          className="hidden text-[6rem] font-bold uppercase text-white text-center leading-none"
+          className="hidden text-[6rem] font-bold  text-white text-center leading-none"
         >
-          <span className="line">You're </span>{" "}
+          <span className="line">You're</span> <br></br>
           <span className="line">not so</span>
           <br></br>
           <span className="line">special</span>
