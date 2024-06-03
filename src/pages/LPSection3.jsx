@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -27,7 +26,7 @@ export default function LPSection3() {
       scrollTrigger: {
         trigger: "#Loading",
         start: "top top",
-        end: "+=280", // Adjust as needed for the length of the sticky section
+        end: "+=150", // Adjust as needed for the length of the sticky section
         scrub: true,
         pin: true,
         markers: process.env.NODE_ENV !== "production",
