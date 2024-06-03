@@ -31,6 +31,7 @@ export const GameProvider = ({ children }) => {
         : categoryMap[category] || [];
     setData(categoryData);
     setRenderedCards(new Set());
+    setFinalCardAdded(false);
     renderCards(categoryData);
   };
 
@@ -51,7 +52,6 @@ export const GameProvider = ({ children }) => {
         tempRenderedCards.add(randomIndex);
       }
     }
-
     setCardStack(tempCardStack);
     setRenderedCards(tempRenderedCards);
   };
