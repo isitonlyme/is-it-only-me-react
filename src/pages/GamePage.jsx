@@ -4,7 +4,7 @@ import { useDrag } from "@use-gesture/react";
 import { useGame } from "../context/GameContext";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import swipe from "../sounds/swipe.mp3";
+import swipe from "../assets/sounds/swipe.mp3";
 
 const to = (i) => ({
   x: 0,
@@ -80,27 +80,13 @@ function GamePage() {
     }
   }, [gone.size, cardStack.length]);
 
-
-
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-bl from-indigo-700 via-indigo-400 to-indigo-700 h-[100vh] touch-none overflow-hidden relative">
-      <div className="flex justify-between w-full px-4 pt-4 ">
-        <Button
-          label={"?"}
-          styling={"text-2xl bg-transparent text-white"}
-          link={"/categories"}
-        />
-        <Button
-          label={"X"}
-          styling={"text-2xl bg-transparent text-white"}
-          link={"/categories"}
-        />
-      </div>
+    <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
       <audio ref={audioRef}>
-      <source src={swipe} type="audio/mpeg" />
-      <p>Your browser does not support the audio element.</p>
-    </audio>
-      <div className="relative flex flex-col items-center justify-center flex-grow -mt-52">
+        <source src={swipe} type="audio/mpeg" />
+        <p>Your browser does not support the audio element.</p>
+      </audio>
+      <div className="relative flex flex-col items-center justify-center flex-grow ">
         {cardStack.map((card, index) => (
           <Card
             key={index}
@@ -115,10 +101,24 @@ function GamePage() {
       {showButton && (
         <Button
           label={"Play Again"}
-          styling={" bg-[#e1f353] absolute bottom-36 left-36 text-black rounded-[10px] shadow-xl"}
+          styling={
+            " bg-[#e1f353] absolute bottom-36 left-36 text-black rounded-[10px] shadow-xl"
+          }
           link={"/categories"}
         />
       )}
+      <div className="flex justify-center w-full p-4 gap-4">
+        <Button
+          label={"take me back"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
+          link={"/categories"}
+        />
+        <Button
+          label={"?"}
+          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
+          link={"/categories"}
+        />
+      </div>
     </div>
   );
 }

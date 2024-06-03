@@ -23,3 +23,13 @@ progress::-moz-progress-bar {
   background: rgb(255, 255, 255);
   background-attachment: fixed;
 }
+
+@layer base {
+  @font-face {
+    font-family: 'PPPangaia';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/src/assets/fonts/PPPangaia-Medium.otf) format('opentype');
+  }
+}
