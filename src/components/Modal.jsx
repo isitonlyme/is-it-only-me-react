@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import Button from "./Button";
 import { gsap } from "gsap";
 
@@ -11,8 +11,15 @@ const Modal = ({ show, onClose }) => {
     if (show) {
       setIsVisible(true);
       setIsClosing(false);
+    } else if (isVisible) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsVisible(false);
+        setIsClosing(false);
+        onClose();
+      }, 500); // 500ms should match your scaleDown animation duration
     }
-  }, [show]);
+  }, [show, onClose, isVisible]);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -23,9 +30,9 @@ const Modal = ({ show, onClose }) => {
     }, 500); // 500ms should match your scaleDown animation duration
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (cardRef.current) {
-      gsap.fromTo(
+      const animation = gsap.fromTo(
         cardRef.current,
         { x: -20, rotation: -5 }, // Starting position and rotation
         {
@@ -37,8 +44,12 @@ const Modal = ({ show, onClose }) => {
           duration: 0.8,
         }
       );
+
+      return () => {
+        animation.kill(); // Cleanup the animation on unmount or when dependencies change
+      };
     }
-  }, [cardRef]); // Ensures this runs after cardRef is set
+  }, [isVisible]); // Run only when isVisible changes
 
   if (!isVisible) {
     return null;
