@@ -9,8 +9,15 @@ export default {
       fontFamily: {
         sans: ['"PPPangaia"', ...defaultTheme.fontFamily.sans],
       },
+
+      colors: {
+        "main-color": "#D0EE1A", //main color & CTA color
+        "white-text-color": "#fffff",
+        "purple-text-color": "#7D53FF",
+      },
+
       backgroundColor: {
-        "custom-bg": "#0D2D75", // Custom blue color
+        "custom-bg": "#0D2D75", // Custom back ground color
       },
       backgroundImage: {
         "gradient-to-bl":

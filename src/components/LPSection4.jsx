@@ -48,7 +48,7 @@ function LPSection4() {
       </h2>
 
       <div className="text-center text-[5.9em] font-semibold relative">
-        <div className="flex gap-0.1">
+        <div className="flex gap-0.1 text-main-color">
           <div id="procent" ref={procentRef}>
             .....
           </div>

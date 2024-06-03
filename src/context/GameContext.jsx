@@ -62,7 +62,10 @@ export const GameProvider = ({ children }) => {
     if (renderedCards.size === data.length && !finalCardAdded) {
       setCardStack((prevStack) => [
         ...prevStack,
-        { category: "Oh no!", question: "No more cards available for this edition :(" },
+        {
+          category: "Oh no!",
+          question: "Whooo Hooo!!! YOU DONE HERE! Let's try another category:)",
+        },
       ]);
       setFinalCardAdded(true);
       return;
@@ -81,7 +84,7 @@ export const GameProvider = ({ children }) => {
     setRenderedCards((prevRendered) => new Set(prevRendered).add(randomIndex));
   };
 
-    // ------------------------------------------------------------
+  // ------------------------------------------------------------
   // Remove card (Not used anymore)
   // ------------------------------------------------------------
   const removeCard = (indexToRemove) => {
