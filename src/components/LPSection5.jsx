@@ -63,12 +63,12 @@ export default function LPSection5() {
           config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
         };
       });
-      if (!active && gone.size === cards.length)
-        setTimeout(() => {
-          gone.clear();
-          api.start((i) => to(i));
-          setShowButton(false);
-        }, 4500);
+      // if (!active && gone.size === cards.length)
+      //   setTimeout(() => {
+      //     gone.clear();
+      //     api.start((i) => to(i));
+      //     setShowButton(false);
+      //   }, 4500);
       if (gone.size === 3) {
         setShowButton(true);
       }
@@ -88,13 +88,15 @@ export default function LPSection5() {
             }`}
           >
             {showButton && (
+              <>
               <Button
                 label={"DO NOT PRESS!"}
                 styling={
-                  " bg-red-700/70 backdrop-blur-2xl border border-slate-700 text-white rounded-full shadow-2xl px-20 py-20 w-20 h-20 flex justify-center items-center text-2xl"
+                  "h-28 w-28 text-xl rounded-full bg-red-700/70 text-white shadow-[0_8px_#292929] active:shadow-[0_3px] active:translate-y-[5px] hover:bg-red-900/70 hover:cursor-pointer"
                 }
                 link={"/categories"}
               />
+            </>
             )}
           </div>
           {props.map(({ x, y, rot, scale }, i) => (

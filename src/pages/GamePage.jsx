@@ -22,6 +22,7 @@ function GamePage() {
   const [cardFling, setCardFling] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState("Take Me Back");
   const audioRef = useRef(null);
 
   const toggleModal = () => {
@@ -82,7 +83,7 @@ function GamePage() {
   // show a button that takes you to category page
   useEffect(() => {
     if (gone.size === cardStack.length - 1) {
-      setShowButton(true);
+      setButtonLabel("Play Again");
     }
   }, [gone.size, cardStack.length]);
 
@@ -92,7 +93,7 @@ function GamePage() {
         <source src={swipe} type="audio/mpeg" />
         <p>Your browser does not support the audio element.</p>
       </audio>
-      <div className="relative flex flex-col items-center justify-center flex-grow ">
+      <div className="relative flex flex-col items-center justify-center flex-grow -mb-20x">
         {cardStack.map((card, index) => (
           <Card
             key={index}
@@ -104,18 +105,9 @@ function GamePage() {
           />
         ))}
       </div>
-      {showButton && (
+      <div className="flex justify-center w-full p-4 gap-4 mb-24">
         <Button
-          label={"Play Again"}
-          styling={
-            " bg-[#e1f353] absolute bottom-36 left-36 text-black rounded-[10px] shadow-xl"
-          }
-          link={"/categories"}
-        />
-      )}
-      <div className="flex justify-center w-full p-4 gap-4">
-        <Button
-          label={"take me back"}
+          label={buttonLabel}
           styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF]"}
           link={"/categories"}
         />
