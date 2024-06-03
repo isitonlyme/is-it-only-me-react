@@ -79,7 +79,7 @@ export default function LPSection1() {
   return (
     <section
       id="word"
-      className="w-screen h-screen bg-gradient-to-bl flex flex-col justify-center items-center space-y-4"
+      className="w-screen h-screen bg-gradient-to-bl flex flex-col justify-center items-center space-y-3"
     >
       {words.map((word, wordIndex) => (
         <div key={wordIndex} className="flex space-x-1">
@@ -92,13 +92,14 @@ export default function LPSection1() {
                 }
                 lettersRef.current[wordIndex][letterIndex] = el;
               }}
-              className="uppercase font-bold text-[9rem] text-[white] tracking-tighter leading-none"
+              className="uppercase font-bold text-[30vw] text-[white] tracking-tighter leading-none"
             >
               {letter.char}
             </span>
           ))}
         </div>
       ))}
+      <img src="/src/assets/Arrow.svg" />
     </section>
   );
 }
