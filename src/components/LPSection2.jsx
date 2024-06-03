@@ -124,7 +124,7 @@ export default function LPSection2() {
         <Button
           label={"Play Game"}
           styling={
-            "bg-[#e1f353] text-[#7D53FF] rounded-[10px] shadow-xl px-12 text-2xl"
+            "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-2xl"
           }
           link={"/categories"}
         />

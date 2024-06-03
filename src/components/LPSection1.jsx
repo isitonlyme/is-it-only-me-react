@@ -92,14 +92,16 @@ export default function LPSection1() {
                 }
                 lettersRef.current[wordIndex][letterIndex] = el;
               }}
-              className="font-bold text-[30vw] tracking-wide leading-none text-[#D0EE1A]"
+              className="font-bold text-[30vw] tracking-wide leading-none text-main-color"
             >
               {letter.char}
             </span>
           ))}
         </div>
       ))}
-      <span className="text-[30vw] text-[#D0EE1A] mt-[-40px] flex justify-start items-start">↓</span>
+      <span className="text-[30vw] text-main-color mt-[-40px] flex justify-start items-start">
+        ↓
+      </span>
     </section>
   );
 }
