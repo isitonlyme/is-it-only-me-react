@@ -125,7 +125,7 @@ function GamePage() {
           onClick={toggleModal}
         />
       </div>
-      <Modal show={showModal} onClose={toggleModal} className="scaleUp" />
+      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
     </div>
   );
 }

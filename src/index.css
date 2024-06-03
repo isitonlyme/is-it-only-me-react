@@ -11,25 +11,29 @@ progress {
   border: none;
   background: lightgray;
   border: 1px;
+  border-radius: 7.5px;
 }
 progress::-webkit-progress-bar {
   background: rgb(177, 177, 177);
+  border-radius: 7.5px;
 }
 progress::-webkit-progress-value {
-  background: rgb(255, 254, 254);
+  background: #e1f353;
   background-attachment: fixed;
+  border-radius: 7.5px;
 }
 progress::-moz-progress-bar {
-  background: rgb(255, 255, 255);
+  background: #e1f353;
   background-attachment: fixed;
+  border-radius: 7.5px;
 }
 
 @layer base {
   @font-face {
-    font-family: 'PPPangaia';
+    font-family: "PPPangaia";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/src/assets/fonts/PPPangaia-Medium.otf) format('opentype');
+    src: url(/src/assets/fonts/PPPangaia-Medium.otf) format("opentype");
   }
 }
