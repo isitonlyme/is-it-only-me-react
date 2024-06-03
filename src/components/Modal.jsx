@@ -59,7 +59,7 @@ const Modal = ({ show, onClose }) => {
               <p className=" text-xl">
                 Swipe card to go to the next statement.
               </p>
-              <img src="/src/assets/card.png" width={100}/>
+              <img src="/src/assets/card.svg" width={100} />
             </li>
             <li className="mb-5">
               <p className="font-bold text-2xl">Discuss</p>
