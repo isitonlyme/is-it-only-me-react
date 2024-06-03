@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
+import { gsap } from "gsap";
 
 const Modal = ({ show, onClose }) => {
   const [isVisible, setIsVisible] = useState(show);
   const [isClosing, setIsClosing] = useState(false);
+  const cardRef = useRef();
 
   useEffect(() => {
     if (show) {
@@ -21,6 +23,23 @@ const Modal = ({ show, onClose }) => {
     }, 500); // 500ms should match your scaleDown animation duration
   };
 
+  useEffect(() => {
+    if (cardRef.current) {
+      gsap.fromTo(
+        cardRef.current,
+        { x: -20, rotation: -5 }, // Starting position and rotation
+        {
+          x: 20, // Ending position
+          rotation: 5, // Ending rotation
+          repeat: -1, // Infinite repeat
+          yoyo: true, // Yo-yo effect
+          ease: "power2.inOut",
+          duration: 0.8,
+        }
+      );
+    }
+  }, [cardRef]); // Ensures this runs after cardRef is set
+
   if (!isVisible) {
     return null;
   }
@@ -37,34 +56,44 @@ const Modal = ({ show, onClose }) => {
             X
           </button>
         </div>
-        <div className="mt-4 items-center justify-center flex flex-col">
+        <div className="mt-4 items-center justify-center flex flex-col text-center">
           <h2 className="font-bold text-4xl tracking-wide text-[#D0EE1A]">
             How To Play
           </h2>
           <ol className="text-[#D0EE1A] text-2xl">
-            <li className="mb-5">
-              <p className="text-2xl">Pick Category</p>
-              <p className="text-xl mb-2">
-                To start, pick a category that fits your mood
-              </p>
-              <Button
-                label={"Mixed"}
-                styling={
-                  "text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-7 rounded-full active:translate-y-[5px]"
-                }
-              />
+            <li className="mb-5 pt-4">
+              <p className="text-2xl font-bold">Pick a Category</p>
+              <p className="text-xl mb-2">Set the mood you want</p>
+              <div className="flex items-center justify-center">
+                <Button
+                  label={"Mixed"}
+                  styling={
+                    "text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-7 rounded-full active:translate-y-[5px]"
+                  }
+                />
+              </div>
             </li>
             <li className="mb-5">
-              <p className="font-bold text-2xl">Swipe</p>
+              <p className="font-bold text-2xl pt-4">Swipe</p>
               <p className=" text-xl">
-                Swipe card to go to the next statement.
+                Left or right.<br></br>There's no right or wrong
               </p>
-              <img src="/src/assets/card.svg" width={100} />
+              <div
+                ref={cardRef}
+                className="flex items-center justify-center transform scale-75"
+              >
+                <div className="flex flex-col bg-gradient-to-b from-[#D0EE1A]/40 to-[#7D53FF] backdrop-blur-2xl border border-slate-700 rounded-[40px] shadow-2xl p-6">
+                  <p className="text-2xl flex justify-center pb-20"></p>
+                  <h3 className="font-bold text-[#D0EE1A] text-3xl pb-20 text-center -mt-4">
+                    Card
+                  </h3>
+                </div>
+              </div>
             </li>
             <li className="mb-5">
               <p className="font-bold text-2xl">Discuss</p>
               <p className="text-xl">
-                Discuss the statement and find out if any person agrees
+                Get to know your friends and find out: is it only me?
               </p>
             </li>
           </ol>
