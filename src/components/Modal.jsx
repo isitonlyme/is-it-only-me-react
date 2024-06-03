@@ -25,7 +25,7 @@ const Modal = ({ show, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center z-30">
       <div
         className={`backdrop-blur-md bg-white/30 p-10 shadow-lg w-screen h-screen ${
           isClosing ? "animate-scaleDown" : "animate-scaleUp"
