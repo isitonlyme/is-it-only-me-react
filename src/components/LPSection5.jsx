@@ -63,12 +63,12 @@ export default function LPSection5() {
           config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
         };
       });
-      if (!active && gone.size === cards.length)
-        setTimeout(() => {
-          gone.clear();
-          api.start((i) => to(i));
-          setShowButton(false);
-        }, 4500);
+      // if (!active && gone.size === cards.length)
+      //   setTimeout(() => {
+      //     gone.clear();
+      //     api.start((i) => to(i));
+      //     setShowButton(false);
+      //   }, 4500);
       if (gone.size === 3) {
         setShowButton(true);
       }
@@ -88,13 +88,15 @@ export default function LPSection5() {
             }`}
           >
             {showButton && (
+              <>
               <Button
                 label={"DO NOT PRESS!"}
                 styling={
-                  " bg-red-700/70 backdrop-blur-2xl border border-slate-700 text-white rounded-full shadow-2xl px-20 py-20 w-20 h-20 flex justify-center items-center text-2xl"
+                  "h-28 w-28 text-xl rounded-full bg-red-700/70 text-white shadow-[0_8px_#292929] active:shadow-[0_3px] active:translate-y-[5px] hover:bg-red-900/70 hover:cursor-pointer"
                 }
                 link={"/categories"}
               />
+            </>
             )}
           </div>
           {props.map(({ x, y, rot, scale }, i) => (
@@ -110,15 +112,15 @@ export default function LPSection5() {
                 }}
                 className="flex flex-col bg-gradient-to-b from-[#D0EE1A]/40 to-[#7D53FF] backdrop-blur-2xl w-[80vh] max-w-[300px] h-[85vh] max-h-[510px] will-change-transform border border-slate-700 rounded-[40px] shadow-2xl touch-none p-6"
               >
-                <p className="text-2xl flex justify-center pb-20">
+                <p className="text-2xl flex justify-center pb-20 select-none">
                   <span className="bg-[#7D53FF] text-[#D0EE1A] px-2 rounded-full mt-6">
                     How to play
                   </span>
                 </p>
-                <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4">
+                <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4 select-none">
                   {cards[i].title}
                 </h3>
-                <p className="text-[#D0EE1A] text-3xl">{cards[i].question}</p>
+                <p className="text-[#D0EE1A] text-3xl select-none">{cards[i].question}</p>
               </animated.div>
             </animated.div>
           ))}
@@ -126,7 +128,7 @@ export default function LPSection5() {
         <Button
           label={"Play Game"}
           styling={
-            "bg-[#e1f353] text-[#7D53FF] rounded-[10px] shadow-xl px-12 text-2xl"
+            "bg-[#e1f353] text-[#7D53FF] rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
           }
           link={"/categories"}
         />
