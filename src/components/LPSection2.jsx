@@ -74,7 +74,7 @@ export default function LPSection2() {
       </h2>
       <div
         id="marqueeDiv"
-        className="mt-32 relative w-full h-full flex flex-col justify-center items-center overflow-hidden"
+        className="pt-[3em] relative w-full h-full flex flex-col justify-center items-center overflow-hidden"
       >
         <div className="pb-20 pt-5">
           <span
