@@ -66,68 +66,63 @@ export default function LPSection2() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center overflow-hidden">
-      <section className="h-screen overflow-hidden">
-        <div className="max-w-screen-lg px-4 ">
-          <h2
-            ref={textRef}
-            className="text-4xl font-semibold text-center md:text-3xl lg:text-4xl text-white break-words w-full"
+    <section>
+      <h2
+        ref={textRef}
+        className="block mx-[0.5em] text-center text-4xl font-normal text-white"
+      >
+        You’ve probably wondered<br></br>that at some point.
+      </h2>
+      <div
+        id="marqueeDiv"
+        className="mt-32 relative w-full h-full flex flex-col justify-center items-center overflow-hidden"
+      >
+        <div className=" pb-20">
+          <span
+            ref={marqueeRefs[0]}
+            className="marquee text-3xl bg-white text-center p-1 mb-5 flex flex-col  mx-52 inline-block transform rotate-2 whitespace-nowrap"
+            style={{ top: "0px" }}
           >
-            You’ve probably wondered<br></br>that at some point.
-          </h2>
-        </div>
-        <div className="">
-          <div
-            id="marqueeDiv"
-            className="pt-32 relative w-full h-full overflow-hidden"
+            that has an official date outfit?
+          </span>
+          <span
+            ref={marqueeRefs[1]}
+            className="marquee text-4xl  text-center bg-white p-1 mb-5 mx-52 inline-block transform -rotate-12 whitespace-nowrap"
+            style={{ top: "30px" }}
           >
-            <div className=" pb-20">
-              <span
-                ref={marqueeRefs[0]}
-                className="marquee text-3xl bg-white text-center p-1 mb-5 flex flex-col  mx-52 inline-block transform rotate-2 whitespace-nowrap"
-                style={{ top: "0px" }}
-              >
-                that has an official date outfit?
-              </span>
-              <span
-                ref={marqueeRefs[1]}
-                className="marquee text-4xl  text-center bg-white p-1 mb-5 mx-52 inline-block transform -rotate-12 whitespace-nowrap"
-                style={{ top: "30px" }}
-              >
-                that has a crush on Bill Clinton?
-              </span>
-              <span
-                ref={marqueeRefs[2]}
-                className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform rotate-8 whitespace-nowrap"
-                style={{ top: "60px" }}
-              >
-                who feels a bit of relief when plans get canceled?
-              </span>
-              <span
-                ref={marqueeRefs[3]}
-                className="marquee  text-center text-5xl bg-white p-1 mx-32 mb-6 inline-block transform -rotate-0 whitespace-nowrap"
-                style={{ top: "90px" }}
-              >
-                am I weird?{" "}
-              </span>
-              <span
-                ref={marqueeRefs[4]}
-                className="marquee text-3xl text-center bg-white p-1 mb-5 inline-block transform -rotate-0"
-                style={{ top: "90px" }}
-              >
-                who judges people by their taste in music or TV shows?
-              </span>
-              <span
-                ref={marqueeRefs[5]}
-                className="marquee text-3xl text-center mx-60 bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
-                style={{ top: "100px" }}
-              >
-                who enjoys the smell of gasoline?
-              </span>
-            </div>
-          </div>
+            that has a crush on Bill Clinton?
+          </span>
+          <span
+            ref={marqueeRefs[2]}
+            className="marquee text-3xl  text-center bg-white p-1 mb-5 inline-block transform rotate-8 whitespace-nowrap"
+            style={{ top: "60px" }}
+          >
+            who feels a bit of relief when plans get canceled?
+          </span>
+          <span
+            ref={marqueeRefs[3]}
+            className="marquee  text-center text-5xl bg-white p-1 mx-32 mb-6 inline-block transform -rotate-0 whitespace-nowrap"
+            style={{ top: "90px" }}
+          >
+            am I weird?{" "}
+          </span>
+          <span
+            ref={marqueeRefs[4]}
+            className="marquee text-3xl text-center bg-white p-1 mb-5 inline-block transform -rotate-0"
+            style={{ top: "90px" }}
+          >
+            who judges people by their taste in music or TV shows?
+          </span>
+          <span
+            ref={marqueeRefs[5]}
+            className="marquee text-3xl text-center mx-60 bg-white p-1 mb-5 inline-block transform -rotate-12 whitespace-nowrap"
+            style={{ top: "100px" }}
+          >
+            who enjoys the smell of gasoline?
+          </span>
         </div>
-      </section>
+      </div>
+
       <div className="flex justify-center items-center flex-col visible">
         <Button
           label={"Play Game"}
@@ -138,6 +133,6 @@ export default function LPSection2() {
         />
         <p className="text-sm text-white mt-2">Or keep scrolling</p>
       </div>
-    </div>
+    </section>
   );
 }
