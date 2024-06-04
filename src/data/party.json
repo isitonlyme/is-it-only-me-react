@@ -253,5 +253,25 @@
     "id": 50,
     "category": "party",
     "question": "who hates the sound of cracking knuckles?"
+  },
+  {
+    "id": 51,
+    "category": "party",
+    "question": "that get really anxious when receiving a phone call?"
+  },
+  {
+    "id": 52,
+    "category": "party",
+    "question": "is the word 'pop' incredibly obnoxious and annoying?"
+  },
+  {
+    "id": 53,
+    "category": "party",
+    "question": "who enjoys going to the cinema alone?"
+  },
+  {
+    "id": 54,
+    "category": "party",
+    "question": "or do wine tasters get way too much respect?"
   }
 ]
