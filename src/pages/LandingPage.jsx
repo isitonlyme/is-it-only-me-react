@@ -4,6 +4,7 @@ import LPSection3 from "../components/LPSection3";
 import LPSection4 from "../components/LPSection4";
 import LPSection5 from "../components/LPSection5";
 import Introduction from "../components/Introduction";
+import { PwaPrompt } from "react-ios-pwa-prompt-ts";
 
 import React, { useState, useEffect } from "react";
 
@@ -31,6 +32,7 @@ export default function LandingPage() {
         </div>
       ) : (
         <div>
+          <PwaPrompt permanentlyHideOnDismiss={false} promptOnVisit={1} timesToShow={5} className="font"/>
           <LPSection1 />
           <LPSection2 />
           <LPSection3 />
