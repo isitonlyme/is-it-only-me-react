@@ -19,15 +19,16 @@ export default function LPSection3() {
       return;
     }
 
-    //console.log("Setting up GSAP animation");
+    console.log("Setting up GSAP animation");
 
     // Combined animation timeline
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#Loading",
         start: "top top",
-        end: "+=150", // Adjust as needed for the length of the sticky section
-        scrub: true,
+        duration: 50,
+        end: "+=800", // Increased value to make the user stay longer
+        scrub: true, // Fine-tuned scrub value for smoother animation
         pin: true,
       },
     });
@@ -39,10 +40,10 @@ export default function LPSection3() {
       {
         value: 100,
         ease: "none",
-        duration: 3,
+        duration: 10,
         onUpdate: function () {
           const progressValue = this.progress() * 100;
-          //console.log("onUpdate progress:", this.progress());
+          console.log("onUpdate progress:", this.progress());
           progressElement.value = progressValue;
         },
       }
@@ -62,7 +63,7 @@ export default function LPSection3() {
           specialTextElement.classList.add("block");
         },
       },
-      "+=0.12" // Start after a slight delay to ensure smooth transition
+      "+=0.09" // Start after a slight delay to ensure smooth transition
     );
 
     tl.fromTo(
@@ -72,17 +73,17 @@ export default function LPSection3() {
         opacity: 1,
         y: 0,
         skewY: 0,
-        duration: 0.5,
+        duration: 0.2,
         ease: "power4.out",
         stagger: {
-          amount: 0.3, // Adjust this for staggering effect
+          amount: 0.5, // Adjust this for staggering effect
         },
       },
-      "-=1" // Overlap with the start of the text becoming visible
+      "-=0.5" // Overlap with the start of the text becoming visible
     );
 
     return () => {
-      //console.log("Cleaning up GSAP animation");
+      console.log("Cleaning up GSAP animation");
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       tl.kill();
     };
@@ -93,12 +94,12 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen h-screen top-0"
+        className="flex flex-col justify-start items-center w-screen min-h-[200vh] top-0"
         id="Loading"
         ref={ref}
       >
         <div>
-          <h2 className=" text-4xl tracking-wide mt-32 font-bold text-white">
+          <h2 className="text-4xl tracking-wide mt-32 font-extrabold text-white">
             Sorry to tell you
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-24">
@@ -108,22 +109,21 @@ export default function LPSection3() {
               value="0"
               className="w-full"
             ></progress>
-            <div className="mt-5 text-white font-normal">
-              Loading a hurtful fact...
-            </div>
+            <div className="mt-5 text-white">Loading a hurtful fact...</div>
           </div>
         </div>
         <div
           ref={specialTextRef}
           id="specialText"
-          className="hidden text-[6rem] font-bold  text-white text-center leading-none"
+          className="hidden text-[6rem] font-bold text-white text-center leading-none"
         >
-          <span className="line">You're</span> <br></br>
-          <span className="line">not so</span>
+          <span className="line text-white">You're</span> <br></br>
+          <span className="line text-white">not so</span>
           <br></br>
-          <span className="line">special</span>
+          <span className="line text-white">special</span>
         </div>
       </section>
     </>
   );
 }
+
