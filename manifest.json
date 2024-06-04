@@ -1,6 +1,6 @@
 {
     "name": "Is it only me?",
-    "short_name": "IIOM?",
+    "short_name": "Is it only me?",
     "start_url": "/",
     "display": "fullscreen",
     "background_color": "#7D53FF",
@@ -13,7 +13,7 @@
         "type": "image/png"
       },
       {
-        "src": "/512x512-icon.png.png",
+        "src": "/512x512-icon.png",
         "sizes": "512x512",
         "type": "image/png"
       }
