@@ -5,10 +5,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function LPSection1() {
+export default function LPSection1({ arrowRef, scrollToSection5 }) {
   const [words, setWords] = useState([]);
   const lettersRef = useRef([]);
-  const arrowRef = useRef();
 
   useEffect(() => {
     const string = "Is it only me?";
@@ -77,7 +76,7 @@ export default function LPSection1() {
     }
     if (arrowRef.current) {
       gsap.set(arrowRef.current, { opacity: 0 });
-      
+
       // Delay appearance of the arrow
       gsap.to(arrowRef.current, {
         opacity: 1,
@@ -121,8 +120,11 @@ export default function LPSection1() {
         </div>
       ))}
 
-      <span ref={arrowRef} className="text-[30vw] text-main-color mt-[-40px] flex justify-start items-start">
-
+      <span
+        ref={arrowRef}
+        className="text-[30vw] text-main-color mt-[-40px] flex justify-start items-start"
+        onClick={scrollToSection5}
+      >
         ↓
       </span>
     </section>
