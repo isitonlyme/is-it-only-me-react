@@ -114,7 +114,7 @@ export default function LPSection3() {
               ref={progressRef}
               max="100"
               value="0"
-              className="w-full"
+              className="w-4/5"
             ></progress>
             {/* <div className="mt-5 text-white">Loading a hurtful fact...</div> */}
           </div>
