@@ -2,8 +2,9 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import { useGame } from "../context/GameContext";
+import PageTransitionLayout from "../PageTransitionLayout";
 
-export default function CategoryPage() {
+function CategoryPage() {
   const { chooseCategory } = useGame();
   const [showModal, setShowModal] = useState(false);
 
@@ -12,7 +13,8 @@ export default function CategoryPage() {
   };
 
   return (
-    <section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4 overflow-hidden touch-none">
+    <PageTransitionLayout>
+<section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4 overflow-hidden touch-none">>>>>>>> main
       <div className="flex flex-col items-center gap-4">
         <Button 
         label={"Is it only me?"}
@@ -63,5 +65,8 @@ export default function CategoryPage() {
       </div>
       <Modal show={showModal} onClose={toggleModal} className="scaleUp" />
     </section>
+    </PageTransitionLayout>
   );
 }
+
+export default CategoryPage;
