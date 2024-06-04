@@ -26,7 +26,7 @@ export default function LPSection3() {
         trigger: "#Loading",
         start: "top top",
         duration: 50,
-        end: "+=800", // Increased value to make the user stay longer
+        end: "+=400", // Increased value to make the user stay longer
         scrub: true, // Fine-tuned scrub value for smoother animation
         pin: true,
       },
@@ -91,7 +91,7 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen min-h-[100vh] top-0"
+        className="flex flex-col justify-start items-center w-screen min-h-[140vh] top-0"
         id="Loading"
         ref={ref}
       >
@@ -106,7 +106,7 @@ export default function LPSection3() {
           <p className="text-2xl text-white mt-2">Or keep scrolling</p>
         </div>
         <div>
-          <h2 className="text-3xl tracking-wide mt-20 font-extrabold text-white justify-center items-center">
+          <h2 className="text-3xl tracking-wide mt-16 font-extrabold text-white justify-center items-center">
             Loading a hurtful fact...
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-12">

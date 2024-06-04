@@ -14,7 +14,7 @@ function LandingPage() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 425); // is the typical breakpoint for tablets
+      setIsMobile(window.innerWidth <= 430); // is the typical breakpoint for tablets
     };
 
     handleResize();
