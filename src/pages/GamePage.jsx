@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import swipe from "../assets/sounds/swipe.mp3";
 import Modal from "../components/Modal";
 import PageTransitionLayout from "../PageTransitionLayout";
+import Introduction from "../components/Introduction";
 
 const to = (i) => ({
   x: 0,
@@ -25,6 +26,20 @@ function GamePage() {
   const [showModal, setShowModal] = useState(false);
   const [buttonLabel, setButtonLabel] = useState("Take Me Back");
   const audioRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 430); // is the typical breakpoint for tablets
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -90,37 +105,47 @@ function GamePage() {
 
   return (
     <PageTransitionLayout>
-          <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
-      <audio ref={audioRef}>
-        <source src={swipe} type="audio/mpeg" />
-        <p>Your browser does not support the audio element.</p>
-      </audio>
-      <div className="relative flex flex-col items-center justify-center flex-grow -mb-20x">
-        {cardStack.map((card, index) => (
-          <Card
-            key={index}
-            card={card}
-            index={index}
-            zIndex={cardStack.length - index} // Set z-index based on card index
-            props={props[index]}
-            bind={bind}
-          />
-        ))}
-      </div>
-      <div className="flex justify-center w-full p-4 gap-4 mb-24">
-        <Button
-          label={buttonLabel}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px]"}
-          link={"/categories"}
-        />
-        <Button
-          label={"?"}
-          styling={"text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px] px-6"}
-          onClick={toggleModal}
-        />
-      </div>
-      <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
-    </div>
+      {!isMobile ? (
+        <div>
+          <Introduction />
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
+          <audio ref={audioRef}>
+            <source src={swipe} type="audio/mpeg" />
+            <p>Your browser does not support the audio element.</p>
+          </audio>
+          <div className="relative flex flex-col items-center justify-center flex-grow -mb-20x">
+            {cardStack.map((card, index) => (
+              <Card
+                key={index}
+                card={card}
+                index={index}
+                zIndex={cardStack.length - index} // Set z-index based on card index
+                props={props[index]}
+                bind={bind}
+              />
+            ))}
+          </div>
+          <div className="flex justify-center w-full p-4 gap-4 mb-24">
+            <Button
+              label={buttonLabel}
+              styling={
+                "text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px]"
+              }
+              link={"/categories"}
+            />
+            <Button
+              label={"?"}
+              styling={
+                "text-2xl bg-[#D0EE1A] text-[#7D53FF] active:translate-y-[5px] px-6"
+              }
+              onClick={toggleModal}
+            />
+          </div>
+          <Modal show={showModal} onClose={toggleModal} className="scaleUp" />
+        </div>
+      )}
     </PageTransitionLayout>
   );
 }
