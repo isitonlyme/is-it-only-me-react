@@ -68,7 +68,7 @@ export default function LPSection2() {
     <section>
       <h2
         ref={textRef}
-        className="block mx-[0.5em] text-center text-4xl font-normal text-white"
+        className="block mx-[0.5em] text-center text-[10vw] leading-none font-normal text-white"
       >
         You’ve probably wondered<br></br>that at some point.
       </h2>
