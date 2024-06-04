@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +82,14 @@ export default function LPSection2() {
             className="marquee text-3xl bg-white text-center p-1 mb-5 flex flex-col  mx-52 inline-block transform rotate-2 whitespace-nowrap"
             style={{ top: "0px" }}
           >
+
+            You’ve probably wondered<br></br>this at some point.
+          </h2>
+        </div>
+        <div className="">
+          <div
+            id="marqueeDiv"
+            className="pt-32 relative w-full h-full overflow-hidden"
             that has an official date outfit?
           </span>
           <span
@@ -120,6 +127,8 @@ export default function LPSection2() {
           >
             who enjoys the smell of gasoline?
           </span>
+        </div>
+      </section>
         </div>
       </div>
 

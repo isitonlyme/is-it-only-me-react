@@ -81,7 +81,7 @@ export default function LPSection1() {
       // Delay appearance of the arrow
       gsap.to(arrowRef.current, {
         opacity: 1,
-        delay: 2,
+        delay: 1,
         duration: 0.5,
         onComplete: () => {
           // Pulse animation for the arrow (up and down movement)
