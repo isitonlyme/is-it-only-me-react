@@ -106,7 +106,7 @@ export default function LPSection3() {
           <p className="text-2xl text-white mt-2">Or keep scrolling</p>
         </div>
         <div>
-          <h2 className="text-4xl tracking-wide mt-20 font-extrabold text-white">
+          <h2 className="text-3xl tracking-wide mt-20 font-extrabold text-white justify-center items-center">
             Loading a hurtful fact...
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-12">
