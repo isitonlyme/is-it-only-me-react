@@ -95,19 +95,19 @@ export default function LPSection3() {
         id="Loading"
         ref={ref}
       >
-         <div className="flex justify-center items-center flex-col visible mt-10">
-        <Button
-          label={"Play Game"}
-          styling={
-            "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
-          }
-          link={"/categories"}
-        />
-        <p className="text-sm text-white mt-2">Or keep scrolling</p>
-      </div>
+        <div className="flex justify-center items-center flex-col visible mt-10">
+          <Button
+            label={"Play Game"}
+            styling={
+              "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
+            }
+            link={"/categories"}
+          />
+          <p className="text-2xl text-white mt-2">Or keep scrolling</p>
+        </div>
         <div>
           <h2 className="text-4xl tracking-wide mt-20 font-extrabold text-white">
-            Sorry to tell you
+            Loading a hurtful fact...
           </h2>
           <div className="flex flex-col justify-center items-center mt-10 text-xl mb-12">
             <progress
@@ -116,7 +116,7 @@ export default function LPSection3() {
               value="0"
               className="w-full"
             ></progress>
-            <div className="mt-5 text-white">Loading a hurtful fact...</div>
+            {/* <div className="mt-5 text-white">Loading a hurtful fact...</div> */}
           </div>
         </div>
         <div
@@ -133,4 +133,3 @@ export default function LPSection3() {
     </>
   );
 }
-
