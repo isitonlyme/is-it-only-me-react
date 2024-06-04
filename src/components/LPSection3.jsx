@@ -57,7 +57,7 @@ export default function LPSection3() {
       specialTextElement,
       {
         opacity: 1,
-        duration: 1,
+        duration: 3,
         onStart: () => {
           specialTextElement.classList.remove("hidden");
           specialTextElement.classList.add("block");
@@ -76,7 +76,7 @@ export default function LPSection3() {
         duration: 0.2,
         ease: "power4.out",
         stagger: {
-          amount: 0.5, // Adjust this for staggering effect
+          amount: 1, // Adjust this for staggering effect
         },
       },
       "-=0.5" // Overlap with the start of the text becoming visible
