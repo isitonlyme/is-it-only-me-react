@@ -1,19 +1,12 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
 
 const Introduction = () => {
   return (
     <>
-      <div className="absolute animate-marquee text-center bg-white p-2 inline-block transform rotate-12 whitespace-nowrap top-20 right-10">
-        <span className="text-7xl mb-5 mx-52">
-          • Our website is a mobile-only party
-        </span>
-        <span className="text-7xl mb-5 mx-52">
-          • Our website is a mobile-only party
-        </span>
-        <span className="text-7xl mb-5 mx-52">
-          • Our website is a mobile-only party
-        </span>
-      </div>
+      <Marquee className="absolute animate-marquee text-center bg-white p-2 inline-block transform rotate-12 whitespace-nowrap top-20 right-10 text-7xl mb-5 mx-52">
+        Our website is a mobile-only party
+      </Marquee>
 
       <div className="flex flex-col items-left justify-center h-full text-main-color">
         <div className="relative flex items-center justify-center w-full mb-4"></div>
