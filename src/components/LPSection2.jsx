@@ -76,7 +76,7 @@ export default function LPSection2() {
         id="marqueeDiv"
         className="mt-32 relative w-full h-full flex flex-col justify-center items-center overflow-hidden"
       >
-        <div className=" pb-20">
+        <div className="pb-20 pt-5">
           <span
             ref={marqueeRefs[0]}
             className="marquee text-3xl bg-white text-center p-1 mb-5 flex flex-col  mx-52 inline-block transform rotate-2 whitespace-nowrap"

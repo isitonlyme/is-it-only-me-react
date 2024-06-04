@@ -26,7 +26,7 @@ export default function LPSection3() {
         trigger: "#Loading",
         start: "top top",
         duration: 50,
-        end: "+=900", // Increased value to make the user stay longer
+        end: "+=800", // Increased value to make the user stay longer
         scrub: true, // Fine-tuned scrub value for smoother animation
         pin: true,
       },
@@ -91,7 +91,7 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen min-h-[180vh] top-0"
+        className="flex flex-col justify-start items-center w-screen min-h-[150vh] top-0"
         id="Loading"
         ref={ref}
       >
