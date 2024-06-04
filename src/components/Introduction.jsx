@@ -1,44 +1,45 @@
-export default function Introduction() {
-    return (
-      <section className="flex flex-col justify-center items-center w-screen h-screen">
-        <h2 className="text-8xl text-[#D0EE1A] font-bold mb-2">Is it only me?</h2>
-        <p className="text-[#D0EE1A] text-2xl font-thin">This game is mobile only. Scan this QR code and start playing </p>
-        <p className="text-[#D0EE1A] text-2xl font-thin">
-          If you are an apple user, you can add Is It Only Me? to your homepage by
-          following these steps.
-        </p>
-        <div className="flex">
-        <ol className="text-[#D0EE1A] list-decimal mx-auto mt-8 text-2xl">
-          <li>
-            <p className="font-bold text-2xl">Open Safari</p>
-            <p className="font-thin text-xl">
-              Launch the Safari web browser on your iPhone.
-            </p>
-          </li>
-          <li>
-            <p className="font-bold text-2xl">Navigate to Is It Only Me?</p>
-            <p className="font-thin text-xl">
-              Type "https://isitonlyme.netlify.app/" into the address bar
-            </p>
-          </li>
-          <li>
-            <p className="font-bold text-2xl">Access Share Menu</p>
-            <p className="font-thin text-xl">
-              Once the website loads, tap the "Share" icon at the bottom of the
-              screen. It looks like a square with an arrow pointing upwards.
-            </p>
-          </li>
-          <li>
-            <p className="font-bold text-2xl">Choose "Add to Home Screen"</p>
-            <p className="font-thin text-xl">
-              Scroll down in the Share menu until you find the option labeled "Add
-              to Home Screen" and tap on it
-            </p>
-          </li>
-        </ol>
-        </div>
+import React from "react";
 
-      </section>
-    );
-  }
-  
+const Introduction = () => {
+  return (
+    <>
+      <div className="absolute animate-marquee text-center bg-white p-2 inline-block transform rotate-12 whitespace-nowrap top-20 right-10">
+        <span className="text-7xl mb-5 mx-52">
+          • Our website is a mobile-only party
+        </span>
+        <span className="text-7xl mb-5 mx-52">
+          • Our website is a mobile-only party
+        </span>
+        <span className="text-7xl mb-5 mx-52">
+          • Our website is a mobile-only party
+        </span>
+      </div>
+
+      <div className="flex flex-col items-left justify-center h-full text-main-color">
+        <div className="relative flex items-center justify-center w-full mb-4"></div>
+        <div className="text-9xl font-bold leading-none text-left pl-4">
+          Is it only me?<br></br>
+          Is it only me?<br></br>
+          Is it only me?<br></br>
+          Is it only me?<br></br>
+          Is it only me?
+        </div>
+        <div className="mt-2 text-4xl text-white">
+          Explore the unspoken with your friends
+        </div>
+        <h1 className="text-9xl font-bold leading-none text-left">
+          Is it only me?<br></br>
+          Is it only me?
+        </h1>
+      </div>
+      <div className="mt-10">
+        <div className="text-white text-lg mb-2">Add our app to your phone</div>
+        <div className="p-4 text-main-color rounded-lg">
+          <div>QR</div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Introduction;

@@ -58,10 +58,20 @@ export default {
             transformOrigin: "right bottom",
           },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        marquee2: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
       },
       animation: {
         scaleUp: "scaleUp 0.6s ease-out forwards",
         scaleDown: "scaleDown 0.4s ease-out forwards",
+        marquee: "marquee 25s linear infinite",
+        marquee2: "marquee2 25s linear infinite",
       },
     },
   },
