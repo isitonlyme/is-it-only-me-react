@@ -137,7 +137,7 @@
   {
     "id": 27,
     "category": "party",
-    "question": "who has pretended to know someone at a party to avoid awkwardness?"
+    "question": "or do wine tasters get way too much respect?"
   },
   {
     "id": 28,
@@ -269,9 +269,4 @@
     "category": "party",
     "question": "who enjoys going to the cinema alone?"
   },
-  {
-    "id": 54,
-    "category": "party",
-    "question": "or do wine tasters get way too much respect?"
-  }
 ]
