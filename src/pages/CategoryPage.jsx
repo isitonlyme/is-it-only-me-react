@@ -12,7 +12,7 @@ export default function CategoryPage() {
   };
 
   return (
-    <section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4">
+    <section className="flex flex-col justify-start gap-4 items-center w-screen h-screen p-4 overflow-hidden">
       <div className="flex flex-col items-center gap-4">
         <Button 
         label={"Is it only me?"}
