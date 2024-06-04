@@ -6,6 +6,7 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import swipe from "../assets/sounds/swipe.mp3";
 import Modal from "../components/Modal";
+import PageTransitionLayout from "../PageTransitionLayout";
 
 const to = (i) => ({
   x: 0,
@@ -88,7 +89,8 @@ function GamePage() {
   }, [gone.size, cardStack.length]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
+    <PageTransitionLayout>
+          <div className="flex flex-col items-center justify-center h-[100vh] touch-none overflow-hidden relative">
       <audio ref={audioRef}>
         <source src={swipe} type="audio/mpeg" />
         <p>Your browser does not support the audio element.</p>
@@ -119,6 +121,7 @@ function GamePage() {
       </div>
       <Modal show={showModal} onClose={toggleModal} className="scaleUp"/>
     </div>
+    </PageTransitionLayout>
   );
 }
 
