@@ -76,11 +76,11 @@ export default function LPSection5() {
   );
 
   return (
-    <div className="flex flex-col items-center h-[100vh] overflow-hidden relative">
+    <section className="flex flex-col items-center h-[100vh] overflow-hidden relative">
       <div className="flex flex-col items-center justify-center flex-grow space-y-10">
-        <p className="text-3xl text-center text-white font-bold mx-10">
+        <h2 className="text-4xl text-center text-white  mx-[0.5em]">
           Select a topic and explore the unspoken with your friends
-        </p>
+        </h2>
         <div className="relative flex flex-col items-center justify-center flex-shrink-0 h-[60vh] w-[100vw]">
           <div
             className={`transition-opacity duration-1000 ease-in-out ${
@@ -89,6 +89,7 @@ export default function LPSection5() {
           >
             {showButton && (
               <>
+
               <Button
                 label={"DO NOT PRESS!"}
                 styling={
@@ -97,6 +98,7 @@ export default function LPSection5() {
                 link={"/categories"}
               />
             </>
+
             )}
           </div>
           {props.map(({ x, y, rot, scale }, i) => (
@@ -120,7 +122,9 @@ export default function LPSection5() {
                 <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4 select-none">
                   {cards[i].title}
                 </h3>
-                <p className="text-[#D0EE1A] text-3xl select-none">{cards[i].question}</p>
+                <p className="text-[#D0EE1A] text-3xl select-none">
+                  {cards[i].question}
+                </p>
               </animated.div>
             </animated.div>
           ))}
@@ -133,6 +137,6 @@ export default function LPSection5() {
           link={"/categories"}
         />
       </div>
-    </div>
+    </section>
   );
 }

@@ -48,23 +48,26 @@ function LPSection4() {
       </h2> */}
 
       <div className="text-center text-[5.9em] font-semibold relative pt-8">
-        <div className="flex gap-0.1 text-main-color">
+        <div className="flex gap-0.1 text-main-color ">
           <div id="procent" ref={procentRef}>
             .....
           </div>
           <div
             id="asterisk"
             ref={asteriskRef}
-            className="absolute top-0 left-full ml-[2] mt-1 text-3xl"
+
+            className="absolute top-0 left-full  mt-10 text-3xl "
+
+
           ></div>
         </div>
       </div>
 
-      <h2 className="block mt-[-0.5em] text-center text-4xl font-normal">
-        of us question<br></br>our own uniqueness.
+      <h2 className="block mt-[0.5em] mx-[0.5em] text-center text-4xl font-normal">
+        of us question our own uniqueness.
       </h2>
 
-      <p className="pb-[3em] mt-[0.5em]">* We made up that number</p>
+      <p className="pb-[3em]  mt-[1em]">* We made up that number</p>
     </section>
   );
 }
