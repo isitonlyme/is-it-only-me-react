@@ -88,5 +88,25 @@
     "id": 17,
     "category": "party",
     "question": "who enjoys the smell of gasoline?"
+  },
+  {
+    "id": 18,
+    "category": "party",
+    "question": "that get really anxious when receiving a phone call?"
+  },
+  {
+    "id": 19,
+    "category": "party",
+    "question": "is the word 'pop' incredibly obnoxious and annoying?"
+  },
+  {
+    "id": 20,
+    "category": "party",
+    "question": "who enjoys going to the cinema alone?"
+  },
+  {
+    "id": 21,
+    "category": "party",
+    "question": "or do wine tasters get way too much respect?"
   }
 ]
