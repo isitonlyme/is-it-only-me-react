@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +72,7 @@ export default function LPSection2() {
             ref={textRef}
             className="text-4xl font-semibold text-center md:text-3xl lg:text-4xl text-white break-words w-full"
           >
-            You’ve probably wondered<br></br>that at some point.
+            You’ve probably wondered<br></br>this at some point.
           </h2>
         </div>
         <div className="">
@@ -128,16 +127,6 @@ export default function LPSection2() {
           </div>
         </div>
       </section>
-      <div className="flex justify-center items-center flex-col visible">
-        <Button
-          label={"Play Game"}
-          styling={
-            "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
-          }
-          link={"/categories"}
-        />
-        <p className="text-sm text-white mt-2">Or keep scrolling</p>
-      </div>
-    </div>
+        </div>
   );
 }

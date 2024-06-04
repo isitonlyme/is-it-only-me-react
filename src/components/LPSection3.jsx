@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,15 +20,13 @@ export default function LPSection3() {
       return;
     }
 
-    console.log("Setting up GSAP animation");
-
     // Combined animation timeline
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#Loading",
         start: "top top",
         duration: 50,
-        end: "+=800", // Increased value to make the user stay longer
+        end: "+=900", // Increased value to make the user stay longer
         scrub: true, // Fine-tuned scrub value for smoother animation
         pin: true,
       },
@@ -43,7 +42,6 @@ export default function LPSection3() {
         duration: 10,
         onUpdate: function () {
           const progressValue = this.progress() * 100;
-          console.log("onUpdate progress:", this.progress());
           progressElement.value = progressValue;
         },
       }
@@ -83,7 +81,6 @@ export default function LPSection3() {
     );
 
     return () => {
-      console.log("Cleaning up GSAP animation");
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       tl.kill();
     };
@@ -94,15 +91,25 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen min-h-[200vh] top-0"
+        className="flex flex-col justify-start items-center w-screen min-h-[180vh] top-0"
         id="Loading"
         ref={ref}
       >
+         <div className="flex justify-center items-center flex-col visible mt-10">
+        <Button
+          label={"Play Game"}
+          styling={
+            "bg-main-color text-purple-text-color rounded-[10px] shadow-xl px-12 text-4xl active:translate-y-[5px]"
+          }
+          link={"/categories"}
+        />
+        <p className="text-sm text-white mt-2">Or keep scrolling</p>
+      </div>
         <div>
-          <h2 className="text-4xl tracking-wide mt-32 font-extrabold text-white">
+          <h2 className="text-4xl tracking-wide mt-20 font-extrabold text-white">
             Sorry to tell you
           </h2>
-          <div className="flex flex-col justify-center items-center mt-10 text-xl mb-24">
+          <div className="flex flex-col justify-center items-center mt-10 text-xl mb-12">
             <progress
               ref={progressRef}
               max="100"
