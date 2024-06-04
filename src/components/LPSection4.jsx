@@ -52,11 +52,11 @@ function LPSection4() {
           <div id="procent" ref={procentRef}>
             .....
           </div>
-          {/* <div
+          <div
             id="asterisk"
             ref={asteriskRef}
             className="absolute top-0 left-full ml-[2] mt-1 text-3xl"
-          ></div> */}
+          ></div>
         </div>
       </div>
 
