@@ -24,7 +24,7 @@ function CardComponent({ card, zIndex, index, props, bind }) {
           <span className='bg-[#7D53FF] text-[#D0EE1A] px-2 rounded-full mt-6 select-none'>{card.category} edition</span>
         </p>
         <h3 className="font-bold text-[#D0EE1A] text-5xl pb-20 text-center -mt-4 select-none">Is it only me...</h3>
-        <p className='text-[#D0EE1A] text-3xl select-none'>{card.question}</p>
+        <p className='text-[#D0EE1A] text-3xl select-none text-center'>{card.question}</p>
       </animated.div>
     </animated.div>
   );

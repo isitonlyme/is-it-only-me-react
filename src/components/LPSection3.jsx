@@ -19,7 +19,7 @@ export default function LPSection3() {
       return;
     }
 
-    console.log("Setting up GSAP animation");
+    //console.log("Setting up GSAP animation");
 
     // Combined animation timeline
     const tl = gsap.timeline({
@@ -42,7 +42,7 @@ export default function LPSection3() {
         duration: 3,
         onUpdate: function () {
           const progressValue = this.progress() * 100;
-          console.log("onUpdate progress:", this.progress());
+          //console.log("onUpdate progress:", this.progress());
           progressElement.value = progressValue;
         },
       }
@@ -82,7 +82,7 @@ export default function LPSection3() {
     );
 
     return () => {
-      console.log("Cleaning up GSAP animation");
+      //console.log("Cleaning up GSAP animation");
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       tl.kill();
     };

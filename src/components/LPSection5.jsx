@@ -89,14 +89,16 @@ export default function LPSection5() {
           >
             {showButton && (
               <>
-                <Button
-                  label={"DO NOT PRESS!"}
-                  styling={
-                    "h-28 w-28 text-xl rounded-full bg-red-700/70 text-white shadow-[0_8px_#292929] active:shadow-[0_3px] active:translate-y-[5px] hover:bg-red-900/70 hover:cursor-pointer"
-                  }
-                  link={"/categories"}
-                />
-              </>
+
+              <Button
+                label={"DO NOT PRESS!"}
+                styling={
+                  "h-28 w-28 text-xl rounded-full bg-red-700/70 text-white shadow-[0_8px_#292929] active:shadow-[0_3px_#292929] active:translate-y-[5px] hover:bg-red-900/70 hover:cursor-pointer"
+                }
+                link={"/categories"}
+              />
+            </>
+
             )}
           </div>
           {props.map(({ x, y, rot, scale }, i) => (

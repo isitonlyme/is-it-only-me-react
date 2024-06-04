@@ -55,7 +55,10 @@ function LPSection4() {
           <div
             id="asterisk"
             ref={asteriskRef}
+
             className="absolute top-0 left-full  mt-10 text-3xl "
+
+
           ></div>
         </div>
       </div>
