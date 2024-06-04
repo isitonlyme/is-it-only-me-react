@@ -64,7 +64,7 @@ export const GameProvider = ({ children }) => {
         ...prevStack,
         {
           category: "Oh no!",
-          question: "Whooo Hooo!!! YOU DONE HERE! Let's try another category:)",
+          question: "Whooo Hooo!!!\rYOU'RE DONE!\rLet's try another category:)",
         },
       ]);
       setFinalCardAdded(true);
@@ -84,15 +84,6 @@ export const GameProvider = ({ children }) => {
     setRenderedCards((prevRendered) => new Set(prevRendered).add(randomIndex));
   };
 
-  // ------------------------------------------------------------
-  // Remove card (Not used anymore)
-  // ------------------------------------------------------------
-  const removeCard = (indexToRemove) => {
-    setCardStack((prevStack) =>
-      prevStack.filter((_, index) => index !== indexToRemove)
-    );
-  };
-
   return (
     <GameContext.Provider
       value={{
@@ -100,7 +91,6 @@ export const GameProvider = ({ children }) => {
         cardStack,
         chooseCategory,
         addNewCard,
-        removeCard,
         renderCards,
       }}
     >
