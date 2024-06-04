@@ -1,38 +1,41 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import qr from "/src/assets/qr.png";
+import qrCard from "/src/assets/qrCard.svg";
 
-const Introduction = () => {
+export default function Introduction() {
   return (
     <>
-      <Marquee className="absolute animate-marquee text-center bg-white p-2 inline-block transform rotate-12 whitespace-nowrap top-20 right-10 text-7xl mb-5 mx-52">
-        Our website is a mobile-only party
+      <Marquee
+        style={{ transform: "rotate(-14deg)", position: "fixed", left: "-60px", top:"90px"}}
+        className="fixed text-center text-4xl bg-white p-5"
+      >
+        Our website is a mobile-only party  •  Our website is a mobile-only party  •  Our website is a mobile-only party  •  Our website is a mobile-only party  •  
       </Marquee>
-
-      <div className="flex flex-col items-left justify-center h-full text-main-color">
-        <div className="relative flex items-center justify-center w-full mb-4"></div>
-        <div className="text-9xl font-bold leading-none text-left pl-4">
-          Is it only me?<br></br>
-          Is it only me?<br></br>
-          Is it only me?<br></br>
-          Is it only me?<br></br>
-          Is it only me?
+      <section className="h-screen w-screen flex overflow-clip">
+        <div className=" flex flex-col justify-center items-start ml-10">
+          <h1 className="text-9xl font-bold leading-none text-left text-main-color m-0">
+            Is it only me?<br></br>
+            Is it only me?<br></br>
+            Is it only me?<br></br>
+            Is it only me?<br></br>
+          </h1>
+          <p className="text-white text-4xl text-left my-4 ">
+            Explore the unspoken with your friends
+          </p>
+          <h1 className="text-9xl font-bold leading-none text-left text-main-color">
+            Is it only me?<br></br>
+            Is it only me?<br></br>
+            Is it only me?
+          </h1>
         </div>
-        <div className="mt-2 text-4xl text-white">
-          Explore the unspoken with your friends
+        <div className="w-1/3 flex flex-col justify-center items-center ml-20">
+          <p className="text-white text-4xl px-32 text-center mb-5 mt-32">
+            Add our app to your phone
+          </p>
+          <img src={qrCard} width={300} height={400} />
         </div>
-        <h1 className="text-9xl font-bold leading-none text-left">
-          Is it only me?<br></br>
-          Is it only me?
-        </h1>
-      </div>
-      <div className="mt-10">
-        <div className="text-white text-lg mb-2">Add our app to your phone</div>
-        <div className="p-4 text-main-color rounded-lg">
-          <div>QR</div>
-        </div>
-      </div>
+      </section>
     </>
   );
-};
-
-export default Introduction;
+}
