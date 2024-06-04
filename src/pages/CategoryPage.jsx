@@ -39,7 +39,7 @@ function CategoryPage() {
             <Button
               label={"Is it only me?"}
               styling={
-                "text-2xl border-2 border-[#D0EE1A] rounded-full px-4 text-[#D0EE1A] py-0"
+                "text-[4vw] border-2 border-[#D0EE1A] rounded-full px-2 text-[#D0EE1A] leading-none"
               }
               link={"/"}
             />
