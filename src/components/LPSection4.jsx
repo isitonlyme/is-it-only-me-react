@@ -59,7 +59,7 @@ function LPSection4() {
       </div>
 
       <h2 className="block mt-[0.5em] mx-[0.5em] text-center text-[10vw] leading-none font-normal">
-        of us question <br></br>our own uniqueness.
+        of us question <br></br>our own uniqueness
       </h2>
       <p className="pb-[5em]  mt-[1em]">* We made up that number</p>
     </section>
