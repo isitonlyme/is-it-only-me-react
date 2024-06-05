@@ -8,7 +8,7 @@
   {
     "id": 1,
     "category": "spicy",
-    "question": "that thinks Simba is handsome?"
+    "question": "that thinks Simba and Nala are attractive?"
   },
   {
     "id": 2,
@@ -103,7 +103,7 @@
   {
     "id": 20,
     "category": "spicy",
-    "question": "who has made a sex tape?"
+    "question": "who has made an adult film?"
   },
   {
     "id": 21,
@@ -123,12 +123,12 @@
   {
     "id": 24,
     "category": "spicy",
-    "question": "who has engaged in cybersex?"
+    "question": "who has engaged in phone sex?"
   },
   {
     "id": 25,
     "category": "spicy",
-    "question": "who has sent/gotten an unsolicited dickpic"
+    "question": "who has sent an unsolicited spicy pic?"
   },
   {
     "id": 26,
@@ -138,21 +138,6 @@
   {
     "id": 27,
     "category": "spicy",
-    "question": "who has participated in phone sex?"
-  },
-  {
-    "id": 28,
-    "category": "spicy",
-    "question": "who has read erotic literature?"
-  },
-  {
-    "id": 29,
-    "category": "spicy",
-    "question": "who has had sex in a car?"
-  },
-  {
-    "id": 30,
-    "category": "spicy",
-    "question": "who has lied to get out of sex?"
+    "question": "who has read erotic literature"
   }
 ]
