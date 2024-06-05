@@ -82,7 +82,7 @@
   {
     "id": 16,
     "category": "party",
-    "question": "who feels satisfaction when my ex's new relationship doesn't work out?"
+    "question": "who enjoys going to the cinema alone?"
   },
   {
     "id": 17,
@@ -263,10 +263,5 @@
     "id": 52,
     "category": "party",
     "question": "or is the word 'pop' incredibly obnoxious and annoying?"
-  },
-  {
-    "id": 53,
-    "category": "party",
-    "question": "who enjoys going to the cinema alone?"
   }
 ]
