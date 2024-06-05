@@ -91,7 +91,7 @@ export default function LPSection3() {
   return (
     <>
       <section
-        className="flex flex-col justify-start items-center w-screen min-h-[130vh] top-0"
+        className="flex flex-col justify-start items-center w-screen min-h-[120vh] top-0"
         id="Loading"
         ref={ref}
       >
