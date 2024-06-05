@@ -1,5 +1,5 @@
 [build]
-  publish = "build"
+  publish = "dist"  # match Vite's output directory
   command = "npm run build"
 
 [[redirects]]
