@@ -70,7 +70,7 @@ export default function LPSection2() {
         ref={textRef}
         className="block mx-[0.5em] text-center text-[10vw] leading-none font-normal text-white"
       >
-        You’ve probably wondered<br></br>that at some point.
+        You’ve probably wondered<br></br>this at some point
       </h2>
       <div
         id="marqueeDiv"
