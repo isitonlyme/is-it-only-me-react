@@ -65,7 +65,7 @@ function CategoryPage() {
               link={"/game"}
             />
             <Button
-              label={"Spicy"}
+              label={"NSFW"}
               styling={
                 "text-4xl md:text-6xl bg-[#D0EE1A] text-[#7D53FF] px-8 rounded-full active:translate-y-[5px]"
               }

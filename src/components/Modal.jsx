@@ -77,7 +77,7 @@ const Modal = ({ show, onClose }) => {
               <p className="text-[5vw] mb-3">Set the mood you want</p>
               <div className="flex items-center justify-center">
                 <Button
-                  label={"Mixed"}
+                  label={"Party"}
                   styling={
                     "text-[7vw] md:text-[8vw] bg-[#D0EE1A] text-[#7D53FF] px-7 rounded-full active:translate-y-[5px]"
                   }
