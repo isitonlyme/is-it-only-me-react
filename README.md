@@ -14,6 +14,8 @@ Or simply scan the QR code:
 
 ## The tech solutions used for the project:
 
-React + Vite -> the project is built with
-Tailwind -> for styling
+React + Vite -> the project is built with;
+
+Tailwind -> for styling;
+
 GSAP -> for animations
